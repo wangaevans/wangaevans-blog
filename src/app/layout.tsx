@@ -26,7 +26,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
           {children}
           <Footer copyright={config.site.copyright} />
         </ThemeProvider>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
       </body>
     </html>
   )

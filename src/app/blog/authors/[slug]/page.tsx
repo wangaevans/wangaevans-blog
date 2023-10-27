@@ -56,7 +56,7 @@ const authorSlug = ({ params }: Props) => {
     <>
       <div className="container px-4 md:px-2 mt-10 grid">
         <div className="block  md:gap-4">
-          <div className="grid place-items-center">
+          <div className="grid place-items-center mb-5">
             <Image
               width={200}
               height={200}

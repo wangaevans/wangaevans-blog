@@ -67,7 +67,7 @@ const PostSlug = ({ params }: Props) => {
           />
         </div>
 
-        <h1 className="text-center text-2xl font-bold uppercase">
+        <h1 className="text-center mt-6 text-2xl font-bold uppercase">
           {post.title}
         </h1>
         <div className="mb-8 text-center">
