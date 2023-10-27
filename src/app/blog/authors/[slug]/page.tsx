@@ -77,7 +77,7 @@ const authorSlug = ({ params }: Props) => {
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post, index) => (
             <Link
-              key={post.id}
+              key={index}
               href={sluggify(post.url)}
               className="w-fit py-4 text-xl text-primary-500 hover:text-secondary-700"
             >
