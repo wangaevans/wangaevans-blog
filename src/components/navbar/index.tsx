@@ -53,7 +53,7 @@ export default function Navbar({ links, branding }: NavbarProps) {
                   <Link
                   key={index} onClick={() => setIsOpen(false)}
                     className={`${
-                      pathname === link.href ? 'text-great-blue-400 border dark:border-great-blue-400' : ''
+                      pathname === link.href ? 'text-great-blue-400 md:border dark:border-great-blue-400' : ''
                     } block justify-center px-2 text-[1.1rem] h-14 md:h-[initial] focus:outline-none  rounded hover:text-great-blue-400`}
                     href={link.href}
                   >

@@ -19,7 +19,7 @@ const CategoryItem = ({ category }: Props) => {
       <h2 className="text-4xl font-bold">
         <Link href={sluggify(category.url)}>{category.title}</Link>
       </h2>
-      <p>{category.description}</p>
+      <p className='text-lg md:text-xl'>{category.description}</p>
       {/* <ButtonLink href={category.url}>Open</ButtonLink> */}
     </div>
   )
