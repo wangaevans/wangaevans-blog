@@ -1,5 +1,7 @@
 'use client'
 
+import {  AiOutlineArrowRight } from "react-icons/ai"
+
 export function ContactForm() {
   return (
     <section className=" dark:bg-primary-950">
@@ -31,7 +33,7 @@ export function ContactForm() {
               type="text"
               id="subject"
               className="dark:shadow-sm-light block w-full rounded-lg border border-primary-300  p-3 text-sm text-primary-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-primary-600 dark:bg-primary-900 dark:text-white dark:placeholder-primary-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-              placeholder="Let me know how we can help you"
+              placeholder="Let me know how i can help you"
               required
             />
           </div>
@@ -52,9 +54,9 @@ export function ContactForm() {
           </div>
           <button
             type="submit"
-            className="rounded-lg bg-primary-900 px-5 py-3 text-center text-sm font-medium text-white hover:bg-primary-900 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-primary-900 sm:w-fit"
+            className="rounded-lg flex items-center bg-primary-900  px-5 py-3 text-center text-sm font-medium text-white hover:bg-primary-900 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-primary-900 sm:w-fit"
           >
-            Send message
+            Send message <AiOutlineArrowRight className="ml-2 animate-pulse" size={22}/>
           </button>
         </form>
       </div>

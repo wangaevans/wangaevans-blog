@@ -49,11 +49,11 @@ const authorSlug = ({ params }: Props) => {
   const filteredPosts = currentPosts.filter(
     (post) => sluggify(post.author) === sluggify(author.name)
   )
-  function getIcon(Icon: any) {
-    return <div>{Icon && <Icon />}</div>
-  }
+  // function getIcon(Icon: any) {
+  //   return <div>{Icon && <Icon />}</div>
+  // }
   return (
-    <>
+    <div>
       <div className="container px-4 md:px-2 mt-10 grid">
         <div className="block  md:gap-4">
           <div className="grid place-items-center mb-5">
@@ -91,7 +91,7 @@ const authorSlug = ({ params }: Props) => {
       <div className="mt-8 text-center">
         <ButtonBack>Back</ButtonBack>
       </div>
-    </>
+    </div>
   )
 }
 

@@ -20,7 +20,6 @@ export default function Hero() {
         <p className="md:text-xl my-2">
           I specialize in DevOps. I
           share my tech journey on X(formerly Twitter),commit code to Github.
-          Love coding
         </p>
       </div>
       <div className="container">

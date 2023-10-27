@@ -51,16 +51,15 @@ export default function Navbar({ links, branding }: NavbarProps) {
             {links.map((link, index) => {
               const pathname = usePathname()
               return (
-                <li key={index} className="py-4 " onClick={() => setIsOpen(false)}>
                   <Link
+                  key={index} onClick={() => setIsOpen(false)}
                     className={`${
                       pathname === link.href ? 'text-great-blue-400' : ''
-                    } px-2 text-[1.1rem] hover:text-great-blue-400`}
+                    } block justify-center px-2 text-[1.1rem] h-10 hover:text-great-blue-400`}
                     href={link.href}
                   >
                     {link.title}
                   </Link>
-                </li>
               )
             })}
           </ul>
