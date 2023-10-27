@@ -1,7 +1,7 @@
 import React from 'react'
 import { AiOutlineDribbble, AiOutlineGithub, AiOutlineTwitter } from "react-icons/ai"
 
-export default function Footer({ copyright }) {
+export default function Footer({ copyright }:any) {
   return (
     <div className="grid bg-primary-100 py-5 text-primary-950 transition-all dark:bg-primary-950 dark:text-primary-200">
       <div className="container">
