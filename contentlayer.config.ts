@@ -68,7 +68,7 @@ export const Category = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (category) => `/blog/${category._raw.flattenedPath}`
+      resolve: (category) => `/${category._raw.flattenedPath}`
     }
   }
 }))

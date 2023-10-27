@@ -1,16 +1,13 @@
-import { useMDXComponent } from 'next-contentlayer/hooks'
-
-import ButtonBack from '../../../../components/ui/ButtonBack'
-import Container from '../../../../components/ui/Container'
-import NotFound from '../../../not-found'
+import ButtonBack from '../../../components/ui/ButtonBack'
+import NotFound from '../../not-found'
 
 // eslint-disable-next-contentlayer/generated/generatedcontentlayer/generatedne @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { allCategories, allPosts, Post } from 'contentlayer/generated'
-import Content from '../../../../components/ui/Content'
-import { getPagination } from '../../../../utils/pagination'
+import Content from '../../../components/ui/Content'
+import { getPagination } from '../../../utils/pagination'
 import Link from 'next/link'
-import { sluggify } from '../../../../utils/sluggify'
+import { sluggify } from '../../../utils/sluggify'
 
 interface Props {
   params: {
@@ -51,7 +48,7 @@ const categorySlug = ({ params }: Props) => {
 
   return (
     <>
-        <div className='container  grid'>
+        <div className='container  px-5 md:px-0  grid'>
           <h1 className='text-2xl md:text-3xl font-bold mt-10'>{filteredPosts.length} Posts in {category.title}</h1>
           {filteredPosts.length > 0 ? (
             filteredPosts.map((post,index) => (

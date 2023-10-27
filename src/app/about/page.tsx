@@ -5,26 +5,15 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 import { allAuthors, allPosts, Post } from 'contentlayer/generated'
 import Image from 'next/image'
 import Link from 'next/link'
-import { sluggify } from '../../../../utils/sluggify'
-import { getPagination } from '../../../../utils/pagination'
-import NotFound from '../../../not-found'
-import ButtonBack from '../../../../components/ui/ButtonBack'
+import { sluggify } from '../../utils/sluggify'
+import ButtonBack from '../../components/ui/ButtonBack'
+import { getPagination } from '../../utils/pagination'
+import NotFound from '../not-found'
 
-interface Props {
-  params: {
-    slug: string
-  }
-}
 
-export const generateStaticParams = () => {
-  return allAuthors.map((author) => ({
-    slug: sluggify(author._raw.flattenedPath)
-  }))
-}
-
-export const generateMetadata = ({ params }: Props) => {
+export const generateMetadata = () => {
   const author = allAuthors.find(
-    (p) => sluggify(p._raw.flattenedPath) === `authors/${params.slug}`
+    (p) => sluggify(p._raw.flattenedPath) === `authors/wanga-evans`
   )
 
   return {
@@ -33,10 +22,10 @@ export const generateMetadata = ({ params }: Props) => {
   }
 }
 
-const authorSlug = ({ params }: Props) => {
+const authorSlug = () => {
   const { currentPosts } = getPagination<Post>(allPosts)
   const author = allAuthors.find(
-    (p) => sluggify(p._raw.flattenedPath) === `authors/${params.slug}`
+    (a) => sluggify(a._raw.flattenedPath) === `authors/wanga-evans`
   )
   let MDXContent
   if (!author) {
@@ -55,7 +44,7 @@ const authorSlug = ({ params }: Props) => {
   return (
     <div>
       <div className="container px-5 md:px-2 mt-10 grid">
-        <div className="block  md:gap-4">
+        <div className="block md:gap-4">
           <div className="grid place-items-center mb-5">
             <Image
               width={200}

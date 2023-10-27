@@ -19,7 +19,7 @@ export default function Hero() {
         </h1>
         <p className="md:text-xl my-2">
           I specialize in DevOps. I
-          share my tech journey on X(formerly Twitter),commit code to Github.
+          share my tech journey on X(formerly Twitter), commit code to Github.
         </p>
       </div>
       <div className="container">

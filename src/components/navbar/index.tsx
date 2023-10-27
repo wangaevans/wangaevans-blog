@@ -25,8 +25,8 @@ export default function Navbar({ links, branding }: NavbarProps) {
     else setIsOpen(!true)
   }
   return (
-    <nav className="sticky left-0 top-0 z-20 w-full   bg-primary-100  dark:bg-primary-950">
-      <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+    <nav className="sticky left-0 top-0 z-20 w-full h-20  bg-primary-100  dark:bg-primary-950">
+      <div className="mx-auto h-full flex max-w-screen-xl flex-wrap items-center justify-between p-4">
         <a href="/" className="flex items-center">
           {/* image */}
           <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
@@ -35,7 +35,6 @@ export default function Navbar({ links, branding }: NavbarProps) {
         </a>
         <div className="flex md:order-2">
           <ThemeToggle className="mr-4 text-xl" />
-
           <button
             type="button"
             onClick={handleClick}
@@ -47,15 +46,15 @@ export default function Navbar({ links, branding }: NavbarProps) {
         <div
           className={`${isOpen? "block":"hidden"}  w-full items-center justify-between md:order-1 md:flex md:w-auto`}
         >
-          <ul className="mt-4 flex transition-all flex-col rounded-lg border border-primary-100 bg-primary-100 p-4 font-medium dark:border-primary-800 md:mt-0 md:flex-row md:space-x-8  md:border-0 md:p-0 dark:bg-primary-950">
+          <ul className="mt-4 flex items-center  flex-col rounded-lg border border-primary-100 bg-primary-100 p-4 font-medium dark:border-primary-800 md:mt-0 md:flex-row md:space-x-8  md:border-0 md:p-0 dark:bg-primary-950">
             {links.map((link, index) => {
               const pathname = usePathname()
               return (
                   <Link
                   key={index} onClick={() => setIsOpen(false)}
                     className={`${
-                      pathname === link.href ? 'text-great-blue-400' : ''
-                    } block justify-center px-2 text-[1.1rem] h-14 hover:text-great-blue-400`}
+                      pathname === link.href ? 'text-great-blue-400 border dark:border-great-blue-400' : ''
+                    } block justify-center px-2 text-[1.1rem] h-14 md:h-[initial] focus:outline-none  rounded hover:text-great-blue-400`}
                     href={link.href}
                   >
                     {link.title}

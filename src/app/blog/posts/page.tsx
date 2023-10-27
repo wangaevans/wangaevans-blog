@@ -10,15 +10,15 @@ import { allPosts, Post } from 'contentlayer/generated'
 const posts: Post[] = allPosts.sort((a, b) => b.date.localeCompare(a.date))
 
 export const metadata = {
-  title: 'List all posts',
-  description: 'Describe posts - Generate by create next app'
+  title: 'All posts',
+  description: 'Describe posts'
 }
 
 const Posts = () => {
   const { currentPosts, totalPages } = getPagination(posts)
 
   return (
-      <div className="container mt-8 grid gap-6">
+      <div className="container  px-5 md:px-0 mt-8 grid gap-6">
         <PostList posts={currentPosts} />
         {totalPages > 1 && <PostPagination totalPages={totalPages} />}
       </div>

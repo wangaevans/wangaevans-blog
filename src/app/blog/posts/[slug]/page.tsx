@@ -28,6 +28,10 @@ export const generateMetadata = ({ params }: Props): Metadata => {
     title: post?.title,
     description: post?.description,
     icons: { icon: post?.banner },
+    robots:{
+      index:true,
+      follow:true
+    },
     openGraph: {
       type: 'website',
       url: 'https://wangaevans.com',
@@ -58,7 +62,7 @@ const PostSlug = ({ params }: Props) => {
 
   return (
       <div className='container'>
-        <div className=" my-4 mr-3 w-full h-[22rem]  rounded  bg-white">
+        <div className=" my-4 mr-3 w-full h-[22rem]  px-4 md:px-0  rounded  bg-white">
           <img
             className="max-h-full w-full object-cover rounded"
             src={`${post.banner}`}
@@ -69,7 +73,7 @@ const PostSlug = ({ params }: Props) => {
           {post.title}
         </h1>
         <div className="mb-8 text-center">
-          <time className="text-gray-700">
+          <time className="text-gray-600 dark:text-gray-500">
             {new Date(post.date).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
