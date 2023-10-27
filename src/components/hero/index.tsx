@@ -24,7 +24,7 @@ export default function Hero() {
       </div>
       <div className="container">
         <div className="flex pt-14 items-center justify-between">
-          <h1 className="text-2xl md:text-3xl font-bold">Latest Articles</h1>
+          <h2 className="text-2xl md:text-3xl font-bold">Latest Articles</h2>
           <Link className='text-semibold md:text-xl text-great-blue-400' href={'/blog/posts'}>View All</Link>
         </div>
         <div className="grid gap-2 my-4">

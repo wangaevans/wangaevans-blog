@@ -3,18 +3,18 @@
 @tailwind utilities;
 
 body {
-    @apply bg-primary-100  dark:bg-primary-950 dark:text-primary-200 text-primary-900;
+    @apply bg-primary-100  dark:bg-primary-950 dark:text-primary-400 text-primary-600;
 }
 
 h1 {
     @apply mt-2 font-bold text-great-blue-400 text-4xl
 }
 h2 {
-    @apply my-2 font-semibold text-great-blue-500 text-2xl
+    @apply my-2 font-semibold  text-2xl
 }
 
 h3 {
-    @apply my-2 font-bold text-great-blue-400 text-xl
+    @apply my-2 font-bold  text-xl
 }
 
 p {

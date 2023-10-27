@@ -6,7 +6,7 @@ export default function Loading() {
   return (
     <div className='grid place-items-center min-h-screen'>
       <div>
-        <RotatingLines/>
+        <RotatingLines strokeColor='#234B83'/>
         <p>Loading...</p>
       </div>
     </div>
