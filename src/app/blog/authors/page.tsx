@@ -4,7 +4,7 @@ import React from 'react'
 import { allAuthors,Author } from 'contentlayer/generated'
 import AuthorsList from '../../../components/authors/authors-list'
 
-const authors: Author[] = allAuthors.sort((a, b) => b.date.localeCompare(a.date))
+const authors: Author[] = allAuthors
 
 export default function Authors() {
   return (
