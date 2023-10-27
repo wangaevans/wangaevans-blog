@@ -1,5 +1,4 @@
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import { AiOutlineGithub, AiOutlineTwitter } from 'react-icons/ai'
 
 // eslint-disable-next-contentlayer/generated/generatedcontentlayer/generatedne @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -10,7 +9,6 @@ import { sluggify } from '../../../../utils/sluggify'
 import { getPagination } from '../../../../utils/pagination'
 import NotFound from '../../../not-found'
 import ButtonBack from '../../../../components/ui/ButtonBack'
-import { IconType } from 'react-icons'
 
 interface Props {
   params: {
