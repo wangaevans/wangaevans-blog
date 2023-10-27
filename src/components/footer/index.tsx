@@ -3,11 +3,11 @@ import { AiOutlineDribbble, AiOutlineGithub, AiOutlineTwitter } from "react-icon
 
 export default function Footer({ copyright }:any) {
   return (
-    <div className="grid bg-primary-100 py-5 text-primary-950 transition-all dark:bg-primary-950 dark:text-primary-200">
+    <div className="grid  bg-primary-200 mt-3 py-5 text-primary-950 transition-all dark:bg-primary-950 dark:text-primary-200">
       <div className="container">
       <div className='block md:flex justify-between'>
         <div className='grid'>
-        <p>Made just for you</p>
+        <p className="text-base">Made just for you</p>
         </div>
         <div className="flex items-center space-x-4 text-xl">
           <AiOutlineTwitter/>
@@ -15,7 +15,7 @@ export default function Footer({ copyright }:any) {
           <AiOutlineDribbble/>
         </div>
       </div>
-      <p className="text-left md:text-center">{copyright}</p>
+      <p className="text-left md:text-center text-sm">{copyright}</p>
     </div>
     </div>
   )

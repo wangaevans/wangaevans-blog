@@ -23,7 +23,7 @@ const PostItem = ({ post }: Props) => {
       </h2>
       <p>
         Posted in{' '}
-        <span className="text-secondary-600">
+        <span className="text-great-blue-600">
           <Link
             href={`/blog/categories/${post.category
               .toLowerCase()

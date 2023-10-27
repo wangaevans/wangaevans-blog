@@ -9,7 +9,7 @@ const ButtonLink = ({ href, children }: Props) => {
   return (
     <Link
       href={href}
-      className="rounded bg-gradient-to-r from-primary-500 to-secondary-500 px-4 py-2 text-white hover:from-green-400 hover:to-blue-500"
+      className="rounded bg-gradient-to-r from-primary-500 to-great-blue-500 px-4 py-2 text-white hover:from-green-400 hover:to-great-blue-500"
     >
       {children}
     </Link>

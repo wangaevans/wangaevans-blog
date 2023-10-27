@@ -54,7 +54,7 @@ const authorSlug = ({ params }: Props) => {
   }
   return (
     <>
-      <div className="container  mt-10 grid">
+      <div className="container px-4 md:px-2 mt-10 grid">
         <div className="block  md:gap-4">
           <div className="grid place-items-center">
             <Image
@@ -79,7 +79,7 @@ const authorSlug = ({ params }: Props) => {
             <Link
               key={index}
               href={sluggify(post.url)}
-              className="w-fit py-4 text-xl text-primary-500 hover:text-secondary-700"
+              className="w-fit py-4 text-xl text-primary-500 hover:text-great-blue-700"
             >
               {index + 1}. {post.title}
             </Link>
