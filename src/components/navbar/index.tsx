@@ -55,7 +55,7 @@ export default function Navbar({ links, branding }: NavbarProps) {
                   key={index} onClick={() => setIsOpen(false)}
                     className={`${
                       pathname === link.href ? 'text-great-blue-400' : ''
-                    } block justify-center px-2 text-[1.1rem] h-10 hover:text-great-blue-400`}
+                    } block justify-center px-2 text-[1.1rem] h-14 hover:text-great-blue-400`}
                     href={link.href}
                   >
                     {link.title}

@@ -5,8 +5,6 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 import { allPosts } from 'contentlayer/generated'
 import ButtonBack from '../../../../components/ui/ButtonBack'
 import NotFound from '../../../not-found'
-import Content from '../../../../components/ui/Content'
-import Container from '../../../../components/ui/Container'
 import { sluggify } from '../../../../utils/sluggify'
 import { Metadata } from 'next'
 import config from '../../../../config'
@@ -60,9 +58,9 @@ const PostSlug = ({ params }: Props) => {
 
   return (
       <div className='container'>
-        <div className=" my-4 mr-3 w-full h-[22rem]  rounded  bg-white p-2">
+        <div className=" my-4 mr-3 w-full h-[22rem]  rounded  bg-white">
           <img
-            className="max-h-full w-full object-cover "
+            className="max-h-full w-full object-cover rounded"
             src={`${post.banner}`}
           />
         </div>
