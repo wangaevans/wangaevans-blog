@@ -2,7 +2,7 @@ export default {
 	site: {
 		branding: {
 			name: "Wanga Evans",
-			description: "Wanga Evans blog for techies. Love this>>>Bookmark it!",
+			description: "Blog for techies| made for you",
 			icon: "logo",
 			image: "/images/avatar.jpg",
 		},
