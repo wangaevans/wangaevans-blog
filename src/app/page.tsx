@@ -3,9 +3,6 @@ import Hero from '../components/hero'
 import ButtonLink from '../components/ui/ButtonLink'
 import { AiOutlineMessage, AiOutlineWhatsApp } from 'react-icons/ai'
 
-export const metadata = {
-  title: 'Home page',
-}
 
 const Home = () => {
   return (
