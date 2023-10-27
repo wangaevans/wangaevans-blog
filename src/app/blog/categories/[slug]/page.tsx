@@ -55,7 +55,7 @@ const categorySlug = ({ params }: Props) => {
           <h1 className='text-2xl md:text-3xl font-bold mt-10'>{filteredPosts.length} Posts in {category.title}</h1>
           {filteredPosts.length > 0 ? (
             filteredPosts.map((post,index) => (
-              <Link key={post.id} href={sluggify(post.url)} className='py-4 text-xl text-primary-500 w-fit hover:text-secondary-700'>
+              <Link key={index} href={sluggify(post.url)} className='py-4 text-xl text-primary-500 w-fit hover:text-secondary-700'>
                {index+1}. {post.title}
               </Link>
             ))

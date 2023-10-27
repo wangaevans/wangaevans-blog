@@ -4,7 +4,7 @@ import React from 'react'
 import { allCategories,Category } from 'contentlayer/generated'
 import CategoryList from '../../../components/categories/category-list'
 
-const categories: Category[] = allCategories.sort((a, b) => b.date.localeCompare(a.date))
+const categories: Category[] = allCategories
 
 export default function Categories() {
   return (
