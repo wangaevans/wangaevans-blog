@@ -38,9 +38,7 @@ const authorSlug = () => {
   const filteredPosts = currentPosts.filter(
     (post) => sluggify(post.author) === sluggify(author.name)
   )
-  // function getIcon(Icon: any) {
-  //   return <div>{Icon && <Icon />}</div>
-  // }
+
   return (
     <div>
       <div className="container select-none px-5 md:px-2 mt-10 grid">

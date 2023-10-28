@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation'
 
 import PostList from '../../../components/post/PostList'
 import PostPagination from '../../../components/post/PostPagination'
-import Container from '../../../components/ui/Container'
 
 import { getPagination } from '../../../utils/pagination'
 
