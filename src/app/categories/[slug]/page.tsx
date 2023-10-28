@@ -4,7 +4,6 @@ import NotFound from '../../not-found'
 // eslint-disable-next-contentlayer/generated/generatedcontentlayer/generatedne @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { allCategories, allPosts, Post } from 'contentlayer/generated'
-import Content from '../../../components/ui/Content'
 import { getPagination } from '../../../utils/pagination'
 import Link from 'next/link'
 import { sluggify } from '../../../utils/sluggify'
