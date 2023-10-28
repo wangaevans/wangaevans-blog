@@ -57,8 +57,8 @@ export default function Navbar({ links, branding }: NavbarProps) {
               {links.map((link, index) => {
                 const pathname = usePathname()
                 return (
-                  <li>
-                    <a
+                  <li key={index}>
+                    <Link
                       href={link.href}
                       className={`${
                         pathname === link.href ? 'text-great-blue-400' : ''
@@ -66,7 +66,7 @@ export default function Navbar({ links, branding }: NavbarProps) {
                       aria-current="page"
                     >
                       {link.title}
-                    </a>
+                    </Link>
                   </li>
                 )
               })}
