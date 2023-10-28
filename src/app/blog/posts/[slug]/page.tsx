@@ -28,9 +28,9 @@ export const generateMetadata = ({ params }: Props): Metadata => {
     title: post?.title,
     description: post?.description,
     icons: { icon: post?.banner },
-    robots:{
-      index:true,
-      follow:true
+    robots: {
+      index: true,
+      follow: true
     },
     openGraph: {
       type: 'website',
@@ -40,7 +40,7 @@ export const generateMetadata = ({ params }: Props): Metadata => {
       siteName: config.site.branding.name,
       images: [
         {
-          url: 'https://wangaevans.com'+post?.banner
+          url: 'https://wangaevans.com' + post?.banner
         }
       ]
     }
@@ -61,15 +61,17 @@ const PostSlug = ({ params }: Props) => {
   }
 
   return (
-      <div className='container'>
-        <div className=" my-4 mr-3 w-full h-[22rem]  px-4 md:px-0  rounded  bg-white">
+    <div>
+      <div className="container">
+        <div className=" rounded w-full h-[22rem] bg-primary-200 px-4  md:px-0  ">
           <img
-            className="max-h-full w-full object-cover rounded"
+            loading="lazy"
+            className="h-full max-w-full w-full rounded object-cover"
             src={`${post.banner}`}
           />
         </div>
 
-        <h1 className="text-center mt-6 text-2xl font-bold uppercase">
+        <h1 className="mt-6 text-center text-2xl font-bold uppercase">
           {post.title}
         </h1>
         <div className="mb-8 text-center">
@@ -86,6 +88,7 @@ const PostSlug = ({ params }: Props) => {
           <ButtonBack>Back</ButtonBack>
         </div>
       </div>
+    </div>
   )
 }
 
