@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Hero from '../components/hero'
-import ButtonLink from '../components/ui/ButtonLink'
-import { AiOutlineMessage, AiOutlineWhatsApp } from 'react-icons/ai'
+import { AiOutlineWhatsApp } from 'react-icons/ai'
 
 
 const Home = () => {

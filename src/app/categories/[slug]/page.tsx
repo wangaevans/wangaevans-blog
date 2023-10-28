@@ -15,14 +15,14 @@ interface Props {
 }
 
 export const generateStaticParams = () => {
-  return allCategories.map((category) => ({
+  return allCategories.map((category:any) => ({
     slug: sluggify(category._raw.flattenedPath)
   }))
 }
 
 export const generateMetadata = ({ params }: Props) => {
   const category = allCategories.find(
-    (p) => sluggify(p._raw.flattenedPath) === `categories/${params.slug}`
+    (p:any) => sluggify(p._raw.flattenedPath) === `categories/${params.slug}`
   )
 
   return {
@@ -32,9 +32,9 @@ export const generateMetadata = ({ params }: Props) => {
 }
 
 const categorySlug = ({ params }: Props) => {
-  const { currentPosts } = getPagination<Post>(allPosts);
+  const { currentPosts } = getPagination<any>(allPosts);
   const category = allCategories.find(
-    (p) => sluggify(p._raw.flattenedPath) === `categories/${params.slug}`
+    (p:any) => sluggify(p._raw.flattenedPath) === `categories/${params.slug}`
   );
 
   if (!category) {

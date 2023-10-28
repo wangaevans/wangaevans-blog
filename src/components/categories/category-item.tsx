@@ -8,7 +8,7 @@ import { Category } from 'contentlayer/generated'
 import { sluggify } from '../../utils/sluggify';
 
 interface Props {
-  category: Category;
+  category: any;
 
 }
 

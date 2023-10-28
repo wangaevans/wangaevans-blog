@@ -5,7 +5,7 @@ import { Category} from 'contentlayer/generated'
 import CategoryItem from './category-item'
 
 interface Props {
-  categories: Category[]
+  categories: any[]
 }
 
 const CategoryList = ({ categories}: Props) => {

@@ -17,14 +17,14 @@ interface Props {
 }
 
 export const generateStaticParams = () => {
-  return allAuthors.map((author) => ({
+  return allAuthors.map((author:any) => ({
     slug: sluggify(author._raw.flattenedPath)
   }))
 }
 
 export const generateMetadata = ({ params }: Props) => {
   const author = allAuthors.find(
-    (p) => sluggify(p._raw.flattenedPath) === `authors/${params.slug}`
+    (p:any) => sluggify(p._raw.flattenedPath) === `authors/${params.slug}`
   )
 
   return {
@@ -34,9 +34,9 @@ export const generateMetadata = ({ params }: Props) => {
 }
 
 const authorSlug = ({ params }: Props) => {
-  const { currentPosts } = getPagination<Post>(allPosts)
+  const { currentPosts } = getPagination<any>(allPosts)
   const author = allAuthors.find(
-    (p) => sluggify(p._raw.flattenedPath) === `authors/${params.slug}`
+    (p:any) => sluggify(p._raw.flattenedPath) === `authors/${params.slug}`
   )
   let MDXContent
   if (!author) {
@@ -47,7 +47,7 @@ const authorSlug = ({ params }: Props) => {
   }
 
   const filteredPosts = currentPosts.filter(
-    (post) => sluggify(post.author) === sluggify(author.name)
+    (post:any) => sluggify(post.author) === sluggify(author.name)
   )
   // function getIcon(Icon: any) {
   //   return <div>{Icon && <Icon />}</div>

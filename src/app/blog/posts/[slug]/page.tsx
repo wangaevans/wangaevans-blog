@@ -16,12 +16,12 @@ interface Props {
 }
 
 export const generateStaticParams = () => {
-  return allPosts.map((post) => ({ slug: sluggify(post._raw.flattenedPath) }))
+  return allPosts.map((post:any) => ({ slug: sluggify(post._raw.flattenedPath) }))
 }
 
 export const generateMetadata = ({ params }: Props): Metadata => {
   const post = allPosts.find(
-    (p) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
+    (p:any) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
   )
 
   return {
@@ -49,7 +49,7 @@ export const generateMetadata = ({ params }: Props): Metadata => {
 
 const PostSlug = ({ params }: Props) => {
   const post = allPosts.find(
-    (p) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
+    (p:any) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
   )
   let MDXContent
 
