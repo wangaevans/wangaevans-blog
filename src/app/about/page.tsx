@@ -43,7 +43,7 @@ const authorSlug = () => {
   // }
   return (
     <div>
-      <div className="container px-5 md:px-2 mt-10 grid">
+      <div className="container select-none px-5 md:px-2 mt-10 grid">
         <div className="block md:gap-4">
           <div className="grid place-items-center mb-5">
             <Image
@@ -68,7 +68,7 @@ const authorSlug = () => {
             <Link
               key={index}
               href={sluggify(post.url)}
-              className="w-fit py-4 text-xl text-primary-500 hover:text-great-blue-700"
+              className="w-fit py-2 text-lg md:text-xl text-primary-500 hover:text-great-blue-700"
             >
               {index + 1}. {post.title}
             </Link>

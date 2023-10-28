@@ -1,5 +1,6 @@
+import Link from 'next/link'
 import React from 'react'
-import { AiOutlineDribbble, AiOutlineGithub, AiOutlineTwitter } from "react-icons/ai"
+import {  AiOutlineGithub, AiOutlineTwitter } from "react-icons/ai"
 
 export default function Footer({ copyright }:any) {
   return (
@@ -10,9 +11,12 @@ export default function Footer({ copyright }:any) {
         <p className="text-base">Made just for you</p>
         </div>
         <div className="flex items-center space-x-4 text-xl">
+          <Link href={'https://twitter.com/evanator77'}>      
           <AiOutlineTwitter/>
+          </Link>
+          <Link href={'https://github.com/wangaevans'}>      
           <AiOutlineGithub/>
-          <AiOutlineDribbble/>
+          </Link>
         </div>
       </div>
       <p className="text-left md:text-center text-sm">{copyright}</p>

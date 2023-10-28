@@ -6,7 +6,7 @@ export default {
 			icon: "logo",
 			image: "/images/avatar.jpg",
 		},
-		twitter: "@eirvans",
+		twitter: "evanator77",
 		copyright: `© ${new Date().getFullYear()} Wanga Evans.`,
 		links: [
 			{

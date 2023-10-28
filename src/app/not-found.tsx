@@ -1,17 +1,7 @@
 import Link from 'next/link'
-import Container from '../components/ui/Container'
-import { Metadata } from 'next'
 
-export const metadata:Metadata = {
-  title: "Not Found",
-  description: "This page could not be found!",
-  icons:{
-    icon:"/favicon.ico"
-  }
-}
 const NotFound = () => {
   return (
-    <Container>
       <div className="flex min-h-[300px] flex-col items-center justify-center">
         <div className="mb-8 text-center">
           <h1 className="text-7xl font-bold">Error 404</h1>
@@ -25,7 +15,6 @@ const NotFound = () => {
           Homepage
         </Link>
       </div>
-    </Container>
   )
 }
 

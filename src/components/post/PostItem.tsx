@@ -18,7 +18,7 @@ const PostItem = ({ post }: Props) => {
         <img className='w-full h-full object-contain bg-white ' src={post.banner}/>
       </div> */}
 
-      <h2 className="bg-gradient-to-r -mb-1 from-primary-400 via-primary-700 to-primary-400 bg-clip-text text-2xl font-bold text-transparent">
+      <h2 className="bg-gradient-to-r -mb-0 from-primary-600 via-primary-400 to-primary-900 bg-clip-text text-2xl font-bold text-transparent">
         <Link href={sluggify(post.url)}>{post.title}</Link>
       </h2>
       <p className='text-sm'>

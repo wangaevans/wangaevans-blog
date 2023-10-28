@@ -1,0 +1,110 @@
+---
+title: Configuring samba for file sharing (Fedora server)
+category: Linux
+author: Wanga Evans
+banner: '/images/es6.png'
+description: Understand how easily files can be shared via samba
+date: 2023-10-28
+---
+
+Configuring Samba for file and printer sharing on a Fedora server involves several steps. Samba
+is a popular open-source implementation of the Server Message Block (SMB) protocol, which is
+used for sharing files and printers between Windows and Linux systems. Here's a step-by-step
+guide on how to set up Samba on your Fedora server.
+
+### Install Samba
+
+Ensure that Samba is installed on your Fedora server. You can use the dnf package manager to
+install it if it's not already installed.
+
+```bash
+sudo dnf install samba
+```
+### Configure your firewall
+You need to allow Samba traffic through your firewall. You can use firewalld to configure your
+firewall rules.
+```bash
+sudo firewall-cmd --permanent --zone=public --add-service=samba
+sudo firewall-cmd --permanent --zone=public --add-port=139/tcp
+sudo firewall-cmd --permane
+```
+### Create a Samba user
+Samba requires user accounts for authentication. You can create a Samba user that corresponds to
+an existing Linux user.
+```bash
+sudo smbpasswd -a your_username
+```
+Replace your_username with the name of the Samba user account that you want to create.
+You'll be prompted to set a password for this Samba user.
+
+### Create a Samba share directory
+```bash
+sudo mkdir /path/to/share
+```
+Replace /path/to/share with the path to the directory that you want to share.
+
+### Configure Samba's smb.conf
+The main configuration file for Samba is smb.conf. You can find this file in /etc/samba/smb.conf.
+You should create a backup of this file before making changes.
+```bash
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
+```
+Edit the smb.conf file with your preferred text editor
+```bash
+sudo nano /etc/samba/smb.conf
+```
+Example smb.conf configuration file.
+```bash
+[global]
+workgroup = WORKGROUP
+security = user
+map to guest = Bad User
+[share_name]
+path = /path/to/shared/folder
+browseable = yes
+read only = no
+valid users = your_username
+```
+Replace share_name with the name of the Samba share directory, path/to/share with the path to
+the directory that you want to share, and your_username with the name of the Samba user account
+that you created.
+
+Save the file and exit the editor. Restart the Samba service.
+```bash
+sudo systemctl restart smb.service
+```
+### Test the Samba configuration
+Test your Samba configuration for syntax errors.
+```bash
+testparm
+```
+If no errors are reported, your configuration is valid.
+
+Start and enable Samba services
+Start and enable the Samba service so that it runs at boot.
+```bash
+ sudo systemctl start smb
+ sudo systemctl enable smb
+```
+Once you have completed these steps, you will be able to access the Samba share directory from
+Windows clients on your network. To configure Samba for printer sharing, you will need to add
+the following lines to the /etc/samba/smb.conf file:
+```bash
+[printers]
+path = /var/spool/samba
+printable = yes
+guest ok = no
+```
+Save the file and exit the editor. Restart the Samba service.
+Connect to the Samba share
+
+From a Windows or Linux client, you can connect to the Samba share by browsing the network or
+using the smbclient command. For example:
+```bash
+smbclient //server_name/share_name -U your_username
+```
+You can also access the share from a Windows computer by entering \\server_name\share_name
+in the file explorer.
+
+`Note: Remember to to customize the configuration to match your specific needs and security
+requirements.`
