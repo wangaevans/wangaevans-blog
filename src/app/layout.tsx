@@ -24,9 +24,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${commissioner.className}`}>
-        <Suspense>
+        {/* <Suspense>
+        </Suspense> */}
           <Analytics />
-        </Suspense>
           <GoogleAnalytics/>
         <ThemeProvider>
           <Navbar branding={config.site.branding} links={config.site.links} />
