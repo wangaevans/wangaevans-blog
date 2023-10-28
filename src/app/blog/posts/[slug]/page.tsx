@@ -62,7 +62,7 @@ const PostSlug = ({ params }: Props) => {
 
   return (
     <div>
-      <div className="container">
+      <div className="container  px-5 md:px-0 ">
         <div className=" rounded w-full h-[22rem] bg-primary-200 px-4  md:px-0  ">
           <img
             loading="lazy"

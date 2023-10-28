@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "rm -rf .contentlayer && next dev",
     "build": "rm -rf .contentlayer && next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
