@@ -5,8 +5,8 @@ import Navbar from '../components/navbar'
 import ThemeProvider from '../components/theme/theme-provider'
 import Footer from '../components/footer'
 import { Metadata } from 'next'
-import { Suspense } from 'react'
-import Analytics from '../components/analytics'
+import Analytics from 'analytics'
+import googleTagManager from '@analytics/google-tag-manager'
 import GoogleAnalytics from './GoogleAnalytics'
 const commissioner = Commissioner({ subsets: ['latin'] })
 
@@ -21,12 +21,21 @@ interface RootLayoutProps {
   children: React.ReactNode
 }
 export default function RootLayout({ children }: RootLayoutProps) {
+  const analytics = Analytics({
+    app: 'wangaevans.com',
+    plugins: [
+      googleTagManager({
+        containerId: process.env.NEXT_PUBLIC_GTM
+      })
+    ]
+  })
+  
+  /* Track a page view */
+  analytics.page()
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${commissioner.className}`}>
-        {/* <Suspense>
-        </Suspense> */}
-          <Analytics />
+       
           <GoogleAnalytics/>
         <ThemeProvider>
           <Navbar branding={config.site.branding} links={config.site.links} />
