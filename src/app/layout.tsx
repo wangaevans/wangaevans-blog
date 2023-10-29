@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     follow:true,
   },
   verification: { google: "7AwiOr9kc6G5cwPLYzDyv-unPEiH9jpw-ZF3XgB2kuI" } ,
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL('https://wangaevans.com'),
   alternates:{
     canonical:'/',
    
