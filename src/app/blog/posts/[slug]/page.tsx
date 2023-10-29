@@ -16,7 +16,7 @@ interface Props {
   }
 }
 
-export const generateStaticParams = ():Metadata => {
+export const generateStaticParams = ()=> {
   return allPosts.map((post:any) => ({ slug: sluggify(post._raw.flattenedPath) }))
 }
 
