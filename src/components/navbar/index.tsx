@@ -28,7 +28,7 @@ export default function Navbar({ links, branding }: NavbarProps) {
     <>
       <nav className="sticky left-0 top-0 z-20 w-full   bg-primary-100  dark:bg-primary-950">
         <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-8">
-          <a href="https://flowbite.com/" className="flex items-center">
+          <a href="/" className="flex items-center">
             {/* image */}
             <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-primary-200">
               {branding.name}
