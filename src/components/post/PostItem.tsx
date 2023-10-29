@@ -2,8 +2,6 @@
 import Link from 'next/link'
 
 import TimeAgo from 'react-timeago'
-import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
-
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore

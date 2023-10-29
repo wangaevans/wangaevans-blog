@@ -6,10 +6,8 @@ import { allPosts } from 'contentlayer/generated'
 import ButtonBack from '../../../../components/ui/ButtonBack'
 import NotFound from '../../../not-found'
 import { sluggify } from '../../../../utils/sluggify'
-import { Metadata } from 'next'
 import config from '../../../../config'
 import readingTime from 'reading-time'
-// import timeago from "timeago"
 interface Props {
   params: {
     slug: string

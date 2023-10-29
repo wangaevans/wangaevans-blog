@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import PostList from '../../../components/post/PostList'
 import PostPagination from '../../../components/post/PostPagination'
 
@@ -9,7 +10,7 @@ import { allPosts, Post } from 'contentlayer/generated'
 
 const posts: Post[] = allPosts.sort((a, b) => b.date.localeCompare(a.date))
 
-export const metadata = {
+export const metadata:Metadata = {
   title: 'All posts',
   description: 'All published posts',
   alternates: {
