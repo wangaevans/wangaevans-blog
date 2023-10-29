@@ -8,19 +8,23 @@ import NotFound from '../../../not-found'
 import { sluggify } from '../../../../utils/sluggify'
 import config from '../../../../config'
 import readingTime from 'reading-time'
+import Link from 'next/link'
+import Image from 'next/image'
 interface Props {
   params: {
     slug: string
   }
 }
 
-export const generateStaticParams = ()=> {
-  return allPosts.map((post:any) => ({ slug: sluggify(post._raw.flattenedPath) }))
+export const generateStaticParams = () => {
+  return allPosts.map((post: any) => ({
+    slug: sluggify(post._raw.flattenedPath)
+  }))
 }
 
-export const generateMetadata = ({ params }: Props)=> {
+export const generateMetadata = ({ params }: Props) => {
   const post = allPosts.find(
-    (p:any) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
+    (p: any) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
   )
 
   return {
@@ -37,27 +41,31 @@ export const generateMetadata = ({ params }: Props)=> {
         {
           url: '/' + post?.banner
         }
-      ],
+      ]
     },
-    robots:{
-      index:true,
-      follow:false,
+    robots: {
+      index: true,
+      follow: false
     },
-    keywords:[`nextjs, react, blog,wanga,evans,${post?.title}`],
-    authors:[{ name: post?.author, url: "/" }],
-    category:'tech blog',
+    keywords: [`blog,wanga,evans,${post?.title}`],
+    authors: [{ name: post?.author, url: '/' }],
+    category: 'tech blog',
     alternates: {
-      canonical: `/${params.slug}`,  
-  },
-  other:{
-  'article:published_time': post?.date,
+      canonical: `/${params.slug}`
+    },
+    other: {
+      'article:published_time': post?.date
+    }
   }
-}
 }
 const PostSlug = ({ params }: Props) => {
   const post = allPosts.find(
-    (p:any) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
+    (p: any) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
   )
+  const relatedPosts = allPosts.filter(
+    (p: any) => sluggify(p.category) === sluggify(post.category) && p !== post
+  )
+
   let MDXContent
 
   if (!post) {
@@ -70,10 +78,10 @@ const PostSlug = ({ params }: Props) => {
   return (
     <div>
       <div className="container  px-5 ">
-        <div className=" rounded w-full h-[22rem] bg-primary-200 px-4    ">
+        <div className=" h-[22rem] w-full rounded bg-primary-200 px-4    ">
           <img
             loading="lazy"
-            className="h-full max-w-full w-full rounded object-cover"
+            className="h-full w-full max-w-full rounded object-cover"
             src={`${post.banner}`}
           />
         </div>
@@ -82,7 +90,7 @@ const PostSlug = ({ params }: Props) => {
           {post.title}
         </h1>
         <div className="mb-8 text-center">
-          <time className="text-gray-600 dark:text-gray-500 mr-3">
+          <time className="mr-3 text-gray-600 dark:text-gray-500">
             {new Date(post.date).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
@@ -92,6 +100,25 @@ const PostSlug = ({ params }: Props) => {
           {readingTime(post.body.code).text}
         </div>
         <MDXContent />
+        <div className="grid">
+          {relatedPosts.length > 0 ? (
+            <h2 className="text-great-blue-400">You might also read:</h2>
+          ) : null}
+          {relatedPosts.length > 0
+            ? relatedPosts.map((post, index) => (
+              <div className='flex items-center'>
+              <Image width={30} className='bg-slate-200 rounded-lg p-1 mr-3' height={30} alt="" src={post.banner}/>
+                <Link
+                  key={index}
+                  href={sluggify(post.url)}
+                  className="w-fit py-2 text-lg text-primary-500 hover:text-great-blue-700 md:text-xl"
+                >
+                {post.title}
+                </Link>
+              </div>
+              ))
+            : null}
+        </div>
         <div className="mt-8 text-center">
           <ButtonBack>Back</ButtonBack>
         </div>
