@@ -8,7 +8,7 @@ const categories: Category[] = allCategories
 
 export default function Categories() {
   return (
-    <div className='select-none container px-3 md:px-0'>
+    <div className='select-none container px-3'>
       <h1 className='my-4 font-bold text-3xl'>{categories.length} Categories</h1>
       <CategoryList  categories={categories}/>
     </div>

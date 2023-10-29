@@ -16,7 +16,7 @@ const CategoryItem = ({ category }: Props) => {
   return (
     <div  className=" p-2 my-3">
         <hr className='border-1 dark:border-primary-900'/>
-      <h2 className="text-4xl font-bold">
+      <h2 className="text-2xl md:text-3xl font-bold">
         <Link href={sluggify(category.url)}>{category.title}</Link>
       </h2>
       <p className='text-lg md:text-xl'>{category.description}</p>

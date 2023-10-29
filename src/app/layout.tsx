@@ -15,12 +15,15 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico'
   },
-  alternates:{
-    canonical:`https://wangaevans.com`
-  },
   robots:{
     index:true,
     follow:true,
+  },
+  verification: { google: "7AwiOr9kc6G5cwPLYzDyv-unPEiH9jpw-ZF3XgB2kuI" } ,
+  metadataBase: new URL('http://localhost:3000'),
+  alternates:{
+    canonical:'/',
+   
   }
 }
 interface RootLayoutProps {

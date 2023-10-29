@@ -1,8 +1,8 @@
 export default {
 	site: {
 		branding: {
-			name: "Wanga Evans",
-			description: "Blog for techies | made just for you",
+			name: "Evans Blog",
+			description: "Evans Blog for techies | made just for you",
 			icon: "logo",
 			image: "/images/avatar.jpg",
 		},
@@ -26,10 +26,7 @@ export default {
 				title: "Contact",
 				href: "/contact",
 			},
-			// {
-			//   title: "Login",
-			//   href: "/login",
-			// },
+			
 		],
 	},
 };

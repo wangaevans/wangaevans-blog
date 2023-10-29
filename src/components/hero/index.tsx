@@ -14,7 +14,7 @@ export default function Hero() {
     <div>
       <div className="container ">
         <h1 className="bg-gradient-to-r from-great-blue-400 to-great-blue-600 bg-clip-text text-transparent pt-5 md:pt-14 text-4xl  md:text-6xl font-semibold">
-          I'm {config.site.branding.name.split(' ').splice(1)}, A Network Engineer{' '}
+          I'm Evans, A Network Engineer{' '}
           <br /> 
         </h1>
         <p className="md:text-xl my-2">

@@ -19,7 +19,7 @@ export const generateStaticParams = () => {
   return allPosts.map((post:any) => ({ slug: sluggify(post._raw.flattenedPath) }))
 }
 
-export const generateMetadata = ({ params }: Props): Metadata => {
+export const generateMetadata = ({ params }: Props)=> {
   const post = allPosts.find(
     (p:any) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
   )
@@ -30,13 +30,13 @@ export const generateMetadata = ({ params }: Props): Metadata => {
     icons: { icon: post?.banner },
     openGraph: {
       type: 'website',
-      url: 'https://wangaevans.com',
+      url: '/',
       title: post?.title,
       description: post?.description,
       siteName: config.site.branding.name,
       images: [
         {
-          url: 'https://wangaevans.com' + post?.banner
+          url: '/' + post?.banner
         }
       ],
     },
@@ -44,12 +44,17 @@ export const generateMetadata = ({ params }: Props): Metadata => {
       index:true,
       follow:false,
     },
+    keywords:["nextjs, react, blog,wanga,evans"],
+    authors:[{ name: post?.author, url: "/" }],
+    category:'tech blog',
     alternates: {
-      canonical: `https://wangaevans.com/${params.slug}`
-    }
+      canonical: `/${params.slug}`,  
+  },
+  other:{
+  'article:published_time': post?.date,
   }
 }
-
+}
 const PostSlug = ({ params }: Props) => {
   const post = allPosts.find(
     (p:any) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
@@ -65,8 +70,8 @@ const PostSlug = ({ params }: Props) => {
 
   return (
     <div>
-      <div className="container  px-5 md:px-0 ">
-        <div className=" rounded w-full h-[22rem] bg-primary-200 px-4  md:px-0  ">
+      <div className="container  px-5 ">
+        <div className=" rounded w-full h-[22rem] bg-primary-200 px-4    ">
           <img
             loading="lazy"
             className="h-full max-w-full w-full rounded object-cover"

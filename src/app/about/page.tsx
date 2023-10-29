@@ -18,7 +18,10 @@ export const generateMetadata = () => {
 
   return {
     title: author?.name,
-    description: author?.bio
+    description: author?.bio,
+    alternates:{
+      canonical:'/about'
+    }
   }
 }
 

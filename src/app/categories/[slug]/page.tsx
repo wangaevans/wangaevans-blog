@@ -50,7 +50,7 @@ const categorySlug = ({ params }: Props) => {
 
   return (
     <>
-        <div className='container  px-5 md:px-0  grid'>
+        <div className='container  px-5   grid'>
           <h1 className='text-2xl md:text-3xl font-bold mt-10'>{filteredPosts.length} Posts in {category.title}</h1>
           {filteredPosts.length > 0 ? (
             filteredPosts.map((post,index) => (
