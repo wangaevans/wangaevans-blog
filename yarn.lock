@@ -1020,6 +1020,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-timeago@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@types/react-timeago/-/react-timeago-4.1.5.tgz#56453a1e55a1b1cc9b006fa74aaddb0fda5f0083"
+  integrity sha512-Tv9pSndEUtdzJ6wDgvgKLD9X3ef+KdHigDxgFi23G//sSPCXZ/jWmX+fm1gQDDWIObJU7HfTTObdzHfI/yv9Rw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*":
   version "18.2.31"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.31.tgz#74ae2630e4aa9af599584157abd3b95d96fb9b40"
@@ -4138,6 +4145,11 @@ react-loader-spinner@^5.4.5:
     styled-components "^5.3.5"
     styled-tools "^1.7.2"
 
+react-timeago@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/react-timeago/-/react-timeago-7.2.0.tgz#ae929d7423a63cbc3dc228e49d22fbf586d459ca"
+  integrity sha512-2KsBEEs+qRhKx/kekUVNSTIpop3Jwd7SRBm0R4Eiq3mPeswRGSsftY9FpKsE/lXLdURyQFiHeHFrIUxLYskG5g==
+
 react@18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
@@ -4158,6 +4170,11 @@ readdirp@~3.6.0:
   integrity sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==
   dependencies:
     picomatch "^2.2.1"
+
+reading-time@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/reading-time/-/reading-time-1.5.0.tgz#d2a7f1b6057cb2e169beaf87113cc3411b5bc5bb"
+  integrity sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==
 
 reflect.getprototypeof@^1.0.4:
   version "1.0.4"

@@ -1,6 +1,9 @@
+"use client"
 import Link from 'next/link'
 
-import ButtonLink from '../ui/ButtonLink'
+import TimeAgo from 'react-timeago'
+import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
+
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -34,13 +37,14 @@ const PostItem = ({ post }: Props) => {
           </Link>
         </span>
         <span className="ml-1">
-          <time>
+        {/* <time>
             {new Date(post.date).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'short',
               day: 'numeric'
             })}
-          </time>
+          </time> */}
+          <TimeAgo className='ml-2' date={post.date} />
         </span>
       </p>
     </div>

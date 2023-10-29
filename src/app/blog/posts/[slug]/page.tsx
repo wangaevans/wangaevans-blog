@@ -8,14 +8,15 @@ import NotFound from '../../../not-found'
 import { sluggify } from '../../../../utils/sluggify'
 import { Metadata } from 'next'
 import config from '../../../../config'
-
+import readingTime from 'reading-time'
+// import timeago from "timeago"
 interface Props {
   params: {
     slug: string
   }
 }
 
-export const generateStaticParams = () => {
+export const generateStaticParams = ():Metadata => {
   return allPosts.map((post:any) => ({ slug: sluggify(post._raw.flattenedPath) }))
 }
 
@@ -44,7 +45,7 @@ export const generateMetadata = ({ params }: Props)=> {
       index:true,
       follow:false,
     },
-    keywords:["nextjs, react, blog,wanga,evans"],
+    keywords:[`nextjs, react, blog,wanga,evans,${post?.title}`],
     authors:[{ name: post?.author, url: "/" }],
     category:'tech blog',
     alternates: {
@@ -83,13 +84,14 @@ const PostSlug = ({ params }: Props) => {
           {post.title}
         </h1>
         <div className="mb-8 text-center">
-          <time className="text-gray-600 dark:text-gray-500">
+          <time className="text-gray-600 dark:text-gray-500 mr-3">
             {new Date(post.date).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
               day: 'numeric'
             })}
           </time>
+          {readingTime(post.body.code).text}
         </div>
         <MDXContent />
         <div className="mt-8 text-center">

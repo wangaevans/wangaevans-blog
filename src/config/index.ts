@@ -2,7 +2,7 @@ export default {
 	site: {
 		branding: {
 			name: "Evans Blog",
-			description: "Evans Blog for techies | made just for you",
+			description: "Explore the latest trends and techniques in Networking, Linux, and Web development.",
 			icon: "logo",
 			image: "/images/avatar.jpg",
 		},
