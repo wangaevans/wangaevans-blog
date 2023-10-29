@@ -34,7 +34,7 @@ const PostItem = ({ post }: Props) => {
             {post.category}
           </Link>
         </span>
-        <span className="ml-1">
+        <span>
         {/* <time>
             {new Date(post.date).toLocaleDateString('en-US', {
               year: 'numeric',

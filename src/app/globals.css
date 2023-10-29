@@ -18,7 +18,7 @@ h3 {
 }
 
 p {
-    @apply text-xl  text-primary-500 my-2
+    @apply text-lg md:text-xl  text-primary-600 dark:text-primary-400  my-2
 }
 
 p code {
@@ -40,3 +40,18 @@ article pre code {
 p > code, h3 > code {
     @apply px-2 rounded text-sm;
 }
+blockquote{
+    @apply bg-slate-200  dark:bg-primary-900 border-l-8 border-[#ccc] dark:border-[hsl(0,0%,60%)] my-6 mx-2 py-2 px-2
+}
+blockquote::before{
+    @apply text-[#ccc] mr-1
+}
+blockquote p{
+    @apply inline
+}
+.line-numbers{
+    list-style-type: decimal; /* Use 'decimal' for Arabic numerals (1, 2, 3, ...) */
+    margin-left: 20px; /* Add left margin for better spacing */
+}
+
+  

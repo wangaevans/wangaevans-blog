@@ -1,4 +1,5 @@
 import { useMDXComponent } from 'next-contentlayer/hooks'
+import Toc from '../../../../components/toc'
 
 // eslint-disable-next-contentlayer/generated/generatedcontentlayer/generatedne @typescript-eslint/ban-ts-comment
 // @ts-ignore

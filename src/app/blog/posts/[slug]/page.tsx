@@ -1,5 +1,5 @@
 import { useMDXComponent } from 'next-contentlayer/hooks'
-
+import Toc from '../../../../components/toc'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { allPosts, Post } from 'contentlayer/generated'
@@ -14,6 +14,9 @@ interface Props {
   params: {
     slug: string
   }
+}
+const mdxComponents={
+  Toc
 }
 
 export const generateStaticParams = () => {
@@ -101,7 +104,9 @@ const PostSlug = ({ params }: Props) => {
           </time>
           {readingTime(post.body.code).text}
         </div>
-        <MDXContent />
+        <div className="js-toc-content">
+        <MDXContent components={mdxComponents}/>
+        </div>
         <div className="grid">
           {relatedPosts.length > 0 ? (
             <h2 className="text-great-blue-400">You might also read:</h2>
