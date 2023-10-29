@@ -2,7 +2,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { allPosts } from 'contentlayer/generated'
+import { allPosts, Post } from 'contentlayer/generated'
 import ButtonBack from '../../../../components/ui/ButtonBack'
 import NotFound from '../../../not-found'
 import { sluggify } from '../../../../utils/sluggify'
@@ -60,11 +60,13 @@ export const generateMetadata = ({ params }: Props) => {
 }
 const PostSlug = ({ params }: Props) => {
   const post = allPosts.find(
-    (p: any) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
+    (p) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
   )
-  const relatedPosts = allPosts.filter(
-    (p: any) => sluggify(p.category) === sluggify(post.category) && p !== post
-  )
+  const relatedPosts = post
+    ? allPosts.filter(
+        (p) => sluggify(p.category) === sluggify(post.category) && p !== post
+      )
+    : []
 
   let MDXContent
 
@@ -106,16 +108,22 @@ const PostSlug = ({ params }: Props) => {
           ) : null}
           {relatedPosts.length > 0
             ? relatedPosts.map((post, index) => (
-              <div className='flex items-center'>
-              <Image width={30} className='bg-slate-200 rounded-lg p-1 mr-3' height={30} alt="" src={post.banner}/>
-                <Link
-                  key={index}
-                  href={sluggify(post.url)}
-                  className="w-fit py-2 text-lg text-primary-500 hover:text-great-blue-700 md:text-xl"
-                >
-                {post.title}
-                </Link>
-              </div>
+                <div className="flex items-center">
+                  <Image
+                    width={30}
+                    className="mr-3 rounded-lg bg-slate-200 p-1"
+                    height={30}
+                    alt=""
+                    src={post.banner}
+                  />
+                  <Link
+                    key={index}
+                    href={sluggify(post.url)}
+                    className="w-fit py-2 text-lg text-primary-500 hover:text-great-blue-700 md:text-xl"
+                  >
+                    {post.title}
+                  </Link>
+                </div>
               ))
             : null}
         </div>
