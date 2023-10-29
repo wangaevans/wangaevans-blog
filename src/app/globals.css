@@ -53,5 +53,7 @@ blockquote p{
     list-style-type: decimal; /* Use 'decimal' for Arabic numerals (1, 2, 3, ...) */
     margin-left: 20px; /* Add left margin for better spacing */
 }
-
+.toc-list-item{
+    @apply py-2;
+}
   
