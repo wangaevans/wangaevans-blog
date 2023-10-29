@@ -1,6 +1,18 @@
 import React from 'react'
 import { ContactForm } from '../../components/contact-form'
 
+export async function generateMetadata() {
+  return {
+    title: "Contact Us",
+    description: "Lets us know what you have in mind",
+    icons: {
+      icon: '/favicon.ico'
+    },
+    alternates: {
+      canonical: `https://wangaevans.com/contact`
+    }
+  }
+}
 export default function Contact() {
   return (
     <div className='container'>

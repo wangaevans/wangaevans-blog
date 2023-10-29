@@ -11,7 +11,10 @@ const posts: Post[] = allPosts.sort((a, b) => b.date.localeCompare(a.date))
 
 export const metadata = {
   title: 'All posts',
-  description: 'Describe posts'
+  description: 'Describe posts',
+  alternates: {
+    canonical: `https://wangaevans.com/posts`
+  }
 }
 
 const Posts = () => {

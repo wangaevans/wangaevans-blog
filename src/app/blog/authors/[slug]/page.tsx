@@ -29,7 +29,10 @@ export const generateMetadata = ({ params }: Props) => {
 
   return {
     title: author?.name,
-    description: author?.bio
+    description: author?.bio,
+    alternates: {
+      canonical: `https://wangaevans.com/${params.slug}`
+    }
   }
 }
 

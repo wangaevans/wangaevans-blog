@@ -28,10 +28,6 @@ export const generateMetadata = ({ params }: Props): Metadata => {
     title: post?.title,
     description: post?.description,
     icons: { icon: post?.banner },
-    robots: {
-      index: true,
-      follow: true
-    },
     openGraph: {
       type: 'website',
       url: 'https://wangaevans.com',
@@ -42,7 +38,14 @@ export const generateMetadata = ({ params }: Props): Metadata => {
         {
           url: 'https://wangaevans.com' + post?.banner
         }
-      ]
+      ],
+    },
+    robots:{
+      index:true,
+      follow:false,
+    },
+    alternates: {
+      canonical: `https://wangaevans.com/${params.slug}`
     }
   }
 }

@@ -14,6 +14,13 @@ export const metadata: Metadata = {
   description: config.site.branding.description,
   icons: {
     icon: '/favicon.ico'
+  },
+  alternates:{
+    canonical:`https://wangaevans.com`
+  },
+  robots:{
+    index:true,
+    follow:true,
   }
 }
 interface RootLayoutProps {
