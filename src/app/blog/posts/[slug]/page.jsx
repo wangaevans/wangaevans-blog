@@ -9,25 +9,27 @@ import { sluggify } from '../../../../utils/sluggify'
 import config from '../../../../config'
 import readingTime from 'reading-time'
 import Link from 'next/link'
-import Image from 'next/image'
-interface Props {
-  params: {
-    slug: string
-  }
-}
-const mdxComponents={
-  Toc
+import Pre from '../../../../components/Pre'
+
+// interface Props {
+//   params: {
+//     slug: string
+//   }
+// }
+const mdxComponents = {
+  Toc,
+  pre:Pre
 }
 
 export const generateStaticParams = () => {
-  return allPosts.map((post: any) => ({
+  return allPosts.map((post) => ({
     slug: sluggify(post._raw.flattenedPath)
   }))
 }
 
-export const generateMetadata = ({ params }: Props) => {
+export const generateMetadata = ({ params }) => {
   const post = allPosts.find(
-    (p: any) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
+    (p) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
   )
 
   return {
@@ -61,7 +63,7 @@ export const generateMetadata = ({ params }: Props) => {
     }
   }
 }
-const PostSlug = ({ params }: Props) => {
+const PostSlug = ({ params }) => {
   const post = allPosts.find(
     (p) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
   )
@@ -105,7 +107,7 @@ const PostSlug = ({ params }: Props) => {
           {readingTime(post.body.code).text}
         </div>
         <div className="js-toc-content">
-        <MDXContent components={mdxComponents}/>
+          <MDXContent components={mdxComponents} />
         </div>
         <div className="grid">
           {relatedPosts.length > 0 ? (
@@ -113,28 +115,35 @@ const PostSlug = ({ params }: Props) => {
           ) : null}
           {relatedPosts.length > 0
             ? relatedPosts.map((post, index) => (
-                <div className="flex items-center">
-                  <Image
-                    width={30}
-                    className="mr-3 rounded-lg bg-slate-200 p-1"
-                    height={30}
-                    alt=""
-                    src={post.banner}
-                  />
-                  <Link
-                    key={index}
-                    href={sluggify(post.url)}
-                    className="w-fit py-2 text-lg text-primary-500 hover:text-great-blue-700 md:text-xl"
-                  >
+                <Link className="grid" key={index} href={sluggify(post.url)}>
+                  <div className="h-[15em]">
+                    <img
+                      loading="lazy"
+                      className="mr-3 h-full w-full rounded-lg bg-slate-200 object-contain p-1"
+                      alt="Image"
+                      src={post.banner}
+                    />
+                  </div>
+                  <h2 className=" w-fit pt-2 text-xl md:2xl text-primary-400 hover:text-great-blue-500">
                     {post.title}
-                  </Link>
-                </div>
+                  </h2>
+                  <div className="-mt-2 flex items-center space-x-3">
+                    <time className="mr-3">
+                      {new Date(post.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}
+                    </time>
+                    {readingTime(post.body.code).text}
+                  </div>
+                </Link>
               ))
             : null}
         </div>
-        <div className="mt-8 text-center">
+        {/* <div className="mt-8 text-center">
           <ButtonBack>Back</ButtonBack>
-        </div>
+        </div> */}
       </div>
     </div>
   )

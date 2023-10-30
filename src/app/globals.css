@@ -56,4 +56,10 @@ blockquote p{
 .toc-list-item{
     @apply py-2;
 }
-  
+html.light[data-theme="light"]{
+    display: none;
+}
+html.dark[data-theme="dark"]{
+  display: none;
+
+}

@@ -3,6 +3,7 @@
 import { useEffect } from "react"
 import tocbot from "tocbot"
 import { TfiMenuAlt } from "react-icons/tfi"
+
 export default function Toc(){
     useEffect(()=>{
         tocbot.init({

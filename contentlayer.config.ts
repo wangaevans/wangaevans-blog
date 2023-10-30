@@ -1,6 +1,7 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
+import { visit } from 'unist-util-visit'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -96,11 +97,11 @@ export const Author = defineDocumentType(() => ({
     socialLinks: {
       type: 'list',
       of: {
-        type: "string"
+        type: 'string'
       },
       description: 'The social links of the author',
       required: false
-    },
+    }
   },
   computedFields: {
     url: {
@@ -110,28 +111,59 @@ export const Author = defineDocumentType(() => ({
   }
 }))
 
-const rehypeoptions = {
-  // Use one of Shiki's packaged themes
-  theme: 'one-dark-pro',
-  // Set to true to keep the background color
-  keepBackground: true,
-  onVisitLine(node: any) {
-    if (node.children.length === 0) {
-      node.children = [{ type: 'text', value: ' ' }]
-    }
-  },
-  onVisitHighlightedLine(node: any) {
-    node.properties.className.push('highlighted')
-  },
-  onVisitHighlightedWord(node: any, id: any) {
-    node.properties.className = ['word']
-  }
-}
+// const rehypeoptions =
 
 export default makeSource({
   contentDirPath: 'content',
   documentTypes: [Post, Category, Author],
   mdx: {
-    rehypePlugins: [rehypeSlug,[ rehypePrettyCode,rehypeoptions]]
+    rehypePlugins: [
+      () => (tree) => {
+        visit(tree, (node:any) => {
+          if (node?.type === 'element' && node.tagName === 'pre') {
+            const [codeEl] = node.children
+            if (codeEl.tagName !== 'code') return
+            node.raw = codeEl.children?.[0].value
+          }
+        })
+      },
+      rehypeSlug,
+      [
+        rehypePrettyCode,
+        {
+          // Use one of Shiki's packaged themes
+          theme: {
+            dark: 'one-dark-pro',
+          },
+          // Set to true to keep the background color
+          keepBackground: true,
+          onVisitLine(node:any) {
+            if (node.children.length === 0) {
+              node.children = [{ type: 'text', value: ' ' }]
+            }
+          },
+          onVisitHighlightedLine(node:any) {
+            node.properties.className.push('highlighted')
+          },
+          onVisitHighlightedWord(node:any, id:any) {
+            node.properties.className = ['word']
+          }
+        }
+      ],
+      () => (tree) => {
+        visit(tree, (node:any) => {
+          if (node?.type === 'element' && node.tagName === 'div') {
+            if (!('data-rehype-pretty-code-fragment' in node.properties)) {
+              return
+            }
+            for (const child of node.children) {
+              if (child.tagName == 'pre') {
+                child.properties['raw'] = node.raw
+              }
+            }
+          }
+        })
+      }
+    ]
   }
 })
