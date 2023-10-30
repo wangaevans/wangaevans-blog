@@ -23,6 +23,11 @@ export const Post = defineDocumentType(() => ({
       description: 'The author of the post',
       required: true
     },
+    caption: {
+      type: 'string',
+      description: 'The banner caption and attribution',
+      required: true
+    },
     banner: {
       type: 'string',
       description: 'The banner image of the post',

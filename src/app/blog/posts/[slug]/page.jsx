@@ -85,10 +85,10 @@ const PostSlug = ({ params }) => {
   return (
     <div>
       <div className="container  px-5 ">
-        <div className=" h-[22rem] w-full rounded bg-primary-200 px-4    ">
+        <div className=" h-[22rem] w-fit mx-auto rounded bg-primary-200 ">
           <img
             loading="lazy"
-            className="h-full w-full max-w-full rounded object-cover"
+            className="h-full w-full max-w-full p-4 rounded object-contain"
             src={`${post.banner}`}
           />
         </div>

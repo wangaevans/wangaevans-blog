@@ -11,8 +11,8 @@ import { AiOutlineSearch } from 'react-icons/ai'
 
 const posts: Post[] = allPosts.sort((a, b) => b.date.localeCompare(a.date))
 const predicate: any = (post: any, query: any) =>
-  post.title.toLowerCase().includes(query) |
-  post.body.code.toLowerCase().includes(query)
+  post.title.toLowerCase().includes(query.toLowerCase()) |
+  post.body.code.toLowerCase().includes(query.toLowerCase())
 
 export default function Hero() {
   const { currentPosts } = getPagination(posts)
