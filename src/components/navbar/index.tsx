@@ -20,11 +20,6 @@ interface NavbarProps {
 
 export default function Navbar({ links, branding }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const handleSearch=()=>{
-    if (!isSearchOpen) setIsSearchOpen(true)
-    else setIsSearchOpen(!true)
-  }
   const handleClick = () => {
     if (!isOpen) setIsOpen(true)
     else setIsOpen(!true)
@@ -40,7 +35,6 @@ export default function Navbar({ links, branding }: NavbarProps) {
             </span>
           </a>
           <div className="flex items-center md:order-2">
-            <Link onClick={handleSearch} className='mr-5' href={'/search'}><AiOutlineSearch size={24}/></Link>
             <ThemeToggle className="mr-4 text-xl" />
             <button
               type="button"

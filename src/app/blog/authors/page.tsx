@@ -9,7 +9,7 @@ const authors: Author[] = allAuthors
 export default function Authors() {
   return (
     <div className='select-none container px-6 '>
-      <h1 className='my-4 font-bold text-3xl'>{authors.length} authors</h1>
+      <h1 className='my-4 font-bold text-3xl'>{authors.length} author{authors.length==1?"":"s"}</h1>
       <AuthorsList  authors={authors}/>
     </div>
   )

@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import Link from 'next/link'
 
 import TimeAgo from 'react-timeago'
@@ -19,30 +19,25 @@ const PostItem = ({ post }: Props) => {
         <img className='w-full h-full object-contain bg-white ' src={post.banner}/>
       </div> */}
 
-      <h2 className="bg-gradient-to-r -mb-0 from-primary-600 via-primary-400 to-primary-900 bg-clip-text text-2xl font-bold text-transparent">
+      <h2 className="-mb-0 bg-gradient-to-r from-primary-600 via-primary-400 to-primary-900 bg-clip-text text-2xl font-bold text-transparent">
         <Link href={sluggify(post.url)}>{post.title}</Link>
       </h2>
-      <p className='text-sm'>
+      <p className="text-sm">
         Posted in{' '}
         <span className="text-great-blue-400">
-          <Link
-            href={`/categories/${post.category
-              .toLowerCase()
-              .split(' ')
-              .join('-')}`}
-          >
+          <Link href={`/categories/${sluggify(post.category)}`}>
             {post.category}
           </Link>
         </span>
         <span>
-        {/* <time>
+          {/* <time>
             {new Date(post.date).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'short',
               day: 'numeric'
             })}
           </time> */}
-          <TimeAgo className='ml-2' date={post.date} />
+          <TimeAgo className="ml-2" date={post.date} />
         </span>
       </p>
     </div>

@@ -24,7 +24,7 @@ const Posts = () => {
   return (
       <div className="container  px-5 mt-8 grid gap-6">
         <h1>All posts</h1>
-        <PostList posts={currentPosts} />
+        <PostList  posts={currentPosts} />
         {totalPages > 1 && <PostPagination totalPages={totalPages} />}
       </div>
   )

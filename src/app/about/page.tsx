@@ -62,7 +62,7 @@ const authorSlug = () => {
         </div>
       
         <h1 className="mt-7 text-2xl font-bold md:text-3xl">
-          {filteredPosts.length} Posts published by me
+          {filteredPosts.length} Post{filteredPosts.length==1?"":"s"} published by me
         </h1>
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post, index) => (
