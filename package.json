@@ -27,6 +27,7 @@
     "react-icons": "^4.11.0",
     "react-loader-spinner": "^5.4.5",
     "react-timeago": "^7.2.0",
+    "react-use-search": "^0.3.2",
     "reading-time": "^1.5.0",
     "rehype-pretty-code": "^0.9.7",
     "rehype-slug": "^6.0.0",

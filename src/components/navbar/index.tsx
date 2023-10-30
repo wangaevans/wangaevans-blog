@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import ThemeToggle from '../theme/theme-toggle'
 import Link from 'next/link'
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { AiOutlineClose, AiOutlineMenu, AiOutlineSearch } from 'react-icons/ai'
 import { usePathname } from 'next/navigation'
 
 interface NavbarProps {
@@ -20,6 +20,11 @@ interface NavbarProps {
 
 export default function Navbar({ links, branding }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const handleSearch=()=>{
+    if (!isSearchOpen) setIsSearchOpen(true)
+    else setIsSearchOpen(!true)
+  }
   const handleClick = () => {
     if (!isOpen) setIsOpen(true)
     else setIsOpen(!true)
@@ -35,6 +40,7 @@ export default function Navbar({ links, branding }: NavbarProps) {
             </span>
           </a>
           <div className="flex md:order-2">
+            <Link onClick={handleSearch} className='mr-3' href={'/search'}><AiOutlineSearch size={24}/></Link>
             <ThemeToggle className="mr-4 text-xl" />
             <button
               type="button"
@@ -57,17 +63,19 @@ export default function Navbar({ links, branding }: NavbarProps) {
               {links.map((link, index) => {
                 const pathname = usePathname()
                 return (
-                  <li key={index} onClick={()=>setIsOpen(false)}>
-                    <Link
-                      href={link.href}
-                      className={`${
-                        pathname === link.href ? 'text-great-blue-400' : ''
-                      } block rounded py-2 pl-3 pr-4 text-lg hover:text-great-blue-400 md:bg-transparent md:p-0  `}
-                      aria-current="page"
-                    >
-                      {link.title}
-                    </Link>
-                  </li>
+                  <>
+                    <li key={index} onClick={() => setIsOpen(false)}>
+                      <Link
+                        href={link.href}
+                        className={`${
+                          pathname === link.href ? 'text-great-blue-400' : ''
+                        } block rounded py-2 pl-3 pr-4 text-lg hover:text-great-blue-400 md:bg-transparent md:p-0  `}
+                        aria-current="page"
+                      >
+                        {link.title}
+                      </Link>
+                    </li>
+                  </>
                 )
               })}
             </ul>
