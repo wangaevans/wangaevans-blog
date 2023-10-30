@@ -61,11 +61,10 @@ export default function Hero() {
     <div>
       <div className="container ">
         <h1 className="bg-gradient-to-r from-great-blue-400 to-great-blue-600 bg-clip-text pt-5 text-4xl font-semibold text-transparent  md:pt-14 md:text-6xl">
-          I'm Evans, A Network Engineer <br />
+          Hi, Welcome!, I'm Evans <br />
         </h1>
         <p className="my-2 md:text-xl">
-          I specialize in DevOps. I share my tech journey on X(formerly
-          Twitter), commit code to Github.
+          I love writing about tech and that's why i made this platform, I share my tech journey on X, commit code to Github.
         </p>
       </div>
       <div className="container">
