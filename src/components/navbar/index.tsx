@@ -39,8 +39,8 @@ export default function Navbar({ links, branding }: NavbarProps) {
               {branding.name}
             </span>
           </a>
-          <div className="flex md:order-2">
-            <Link onClick={handleSearch} className='mr-3' href={'/search'}><AiOutlineSearch size={24}/></Link>
+          <div className="flex items-center md:order-2">
+            <Link onClick={handleSearch} className='mr-5' href={'/search'}><AiOutlineSearch size={24}/></Link>
             <ThemeToggle className="mr-4 text-xl" />
             <button
               type="button"
