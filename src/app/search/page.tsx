@@ -1,6 +1,6 @@
 "use client"
   import React from 'react'
-  import { useSearch } from 'react-use-search'
+  import { Predicate, useSearch } from 'react-use-search'
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   import { allPosts, Post } from 'contentlayer/generated'
@@ -10,8 +10,8 @@
   
   const posts: Post[] = allPosts
   
-  const predicate = posts
-    ? (post, query) =>
+  const predicate:any = posts
+    ? (post:any, query:any) =>
         post.body.code.includes(query) || post.title.includes(query)
     : null
   
@@ -45,7 +45,7 @@
           noResultsMessage
         ) : (
           filteredPosts.map((post) => (
-            <div className="flex flex-col py-2 w-full" key={post.id}>
+            <div className="flex flex-col py-2 w-full" key={post.title}>
               <h2 className="bg-gradient-to-r -mb-0 from-primary-600 via-primary-400 to-primary-900 bg-clip-text text-2xl font-bold text-transparent">
                 <Link href={sluggify(post.url)}>{post.title}</Link>
               </h2>
