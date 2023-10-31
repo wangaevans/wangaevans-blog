@@ -1,12 +1,24 @@
 'use client'
 
 import {  AiOutlineArrowRight } from "react-icons/ai"
+import { useForm } from 'react-hook-form';
+import { sendEmail } from "../../utils/sendmail";
 
+export type FormData = {
+  subject: string;
+  email: string;
+  message: string;
+};
 export function ContactForm() {
+  const { register, handleSubmit } = useForm<FormData>();
+
+  function onSubmit(data: FormData) {
+    sendEmail(data);
+  }
   return (
     <section className=" dark:bg-primary-950">
       <div className="mx-auto max-w-screen-md px-4 py-8">
-        <form action="#" className="space-y-8">
+        <form action="#" className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label
               htmlFor="email"
@@ -20,6 +32,7 @@ export function ContactForm() {
               className="dark:shadow-sm-light block w-full rounded-lg border border-primary-300  p-2.5 text-sm text-primary-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-primary-600 dark:bg-primary-900 dark:text-white dark:placeholder-primary-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
               placeholder="youremail@service.com"
               required
+              {...register('email', { required: true })}
             />
           </div>
           <div>
@@ -35,6 +48,7 @@ export function ContactForm() {
               className="dark:shadow-sm-light block w-full rounded-lg border border-primary-300  p-3 text-sm text-primary-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-primary-600 dark:bg-primary-900 dark:text-white dark:placeholder-primary-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
               placeholder="Let me know how i can help you"
               required
+              {...register('subject', { required: true })}
             />
           </div>
           <div className="sm:col-span-2">
@@ -50,6 +64,7 @@ export function ContactForm() {
               className="block w-full rounded-lg border border-primary-300  p-2.5 text-sm text-primary-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-primary-600 dark:bg-primary-900 dark:text-white dark:placeholder-primary-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
               placeholder="Leave a comment..."
               defaultValue={''}
+              {...register('message', { required: true })}
             />
           </div>
           <button

@@ -11,10 +11,12 @@ export default function Footer({ copyright }:any) {
         <p className="text-base">Made just for you</p>
         </div>
         <div className="flex items-center space-x-4 text-xl">
-          <Link href={'https://twitter.com/evanator77'}>      
+          <Link href={'https://twitter.com/evanator77'}>  
+          <span className='sr-only'>Twitter</span>    
           <AiOutlineTwitter/>
           </Link>
-          <Link href={'https://github.com/wangaevans'}>      
+          <Link href={'https://github.com/wangaevans'}>  
+          <span className='sr-only'>Github</span>    
           <AiOutlineGithub/>
           </Link>
         </div>

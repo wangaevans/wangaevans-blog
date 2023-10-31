@@ -1,15 +1,14 @@
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import Toc from '../../../../components/toc'
 
 // eslint-disable-next-contentlayer/generated/generatedcontentlayer/generatedne @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { allAuthors, allPosts, Post } from 'contentlayer/generated'
 import Image from 'next/image'
 import Link from 'next/link'
 import { sluggify } from '../../../../utils/sluggify'
 import { getPagination } from '../../../../utils/pagination'
 import NotFound from '../../../not-found'
 import ButtonBack from '../../../../components/ui/ButtonBack'
+import { allAuthors, posts } from '../../../../utils/services'
 
 interface Props {
   params: {
@@ -38,7 +37,7 @@ export const generateMetadata = ({ params }: Props) => {
 }
 
 const authorSlug = ({ params }: Props) => {
-  const { currentPosts } = getPagination<any>(allPosts)
+  const { currentPosts } = getPagination<any>(posts)
   const author = allAuthors.find(
     (p:any) => sluggify(p._raw.flattenedPath) === `authors/${params.slug}`
   )

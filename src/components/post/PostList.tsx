@@ -1,8 +1,7 @@
+import { Post } from '../../utils/services'
 import PostItem from './PostItem'
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import { Post } from 'contentlayer/generated'
+
 
 interface Props {
   posts: Post[]
@@ -11,11 +10,11 @@ interface Props {
 const PostList = ({ posts }: Props) => {
   return (
     <>
-      {posts.map((post) => (
-        <>
+      {posts.map((post,index) => (
+        <div key={index}>
         <hr className='border-1 dark:border-primary-900'/>
         <PostItem post={post} key={post._raw.flattenedPath} />
-        </>
+        </div>
       ))}
     </>
   )

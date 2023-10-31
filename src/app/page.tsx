@@ -1,8 +1,7 @@
+"use client"
 import Link from 'next/link'
 import Hero from '../components/hero'
 import { AiOutlineWhatsApp } from 'react-icons/ai'
-
-
 const Home = () => {
   return (
     <div>
@@ -17,7 +16,7 @@ const Home = () => {
           <p className='text-center'>
             Let's have a conversation.
           </p>
-          <Link  className="flex my-5 mx-auto rounded-lg text-xl bg-great-blue-500 hover:opacity-80 hover:-tranprimary-y-1 transition text-primary-200 w-fit px-5 py-3 items-center space-x-2" href={'https://wa.me/+254706344456'}>
+          <Link  className="flex my-5 mx-auto rounded-lg text-xl bg-great-blue-500 hover:opacity-80 hover:-tranprimary-y-1 transition text-primary-100 w-fit px-5 py-3 items-center space-x-2" href={'https://wa.me/+254706344456'}>
             <AiOutlineWhatsApp size={24} />
             <span>Chat</span>
           </Link>

@@ -30,17 +30,18 @@ export default function Navbar({ links, branding }: NavbarProps) {
         <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-8">
           <a href="/" className="flex items-center">
             {/* image */}
-            <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-primary-200">
+            <span className="whitespace-nowrap text-2xl font-semibold dark:text-primary-200">
               {branding.name}
             </span>
           </a>
           <div className="flex items-center md:order-2">
-            <ThemeToggle className="mr-4 text-xl" />
+            <ThemeToggle className="mr-4 text-xl" aria-description='theme button' />
             <button
               type="button"
               onClick={handleClick}
               className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-primary-500 hover:bg-primary-100 focus:outline-none focus:ring-2 focus:ring-primary-200 dark:text-primary-400 dark:hover:bg-primary-700 dark:focus:ring-primary-600 md:hidden"
             >
+              <span className='sr-only'>Menu button</span>
               {isOpen ? (
                 <AiOutlineClose size={22} />
               ) : (
@@ -57,7 +58,6 @@ export default function Navbar({ links, branding }: NavbarProps) {
               {links.map((link, index) => {
                 const pathname = usePathname()
                 return (
-                  <>
                     <li key={index} onClick={() => setIsOpen(false)}>
                       <Link
                         href={link.href}
@@ -69,7 +69,6 @@ export default function Navbar({ links, branding }: NavbarProps) {
                         {link.title}
                       </Link>
                     </li>
-                  </>
                 )
               })}
             </ul>

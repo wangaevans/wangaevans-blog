@@ -1,16 +1,12 @@
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Toc from '../../../../components/toc'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import { allPosts, Post } from 'contentlayer/generated'
-import ButtonBack from '../../../../components/ui/ButtonBack'
 import NotFound from '../../../not-found'
 import { sluggify } from '../../../../utils/sluggify'
 import config from '../../../../config'
 import readingTime from 'reading-time'
 import Link from 'next/link'
 import Pre from '../../../../components/Pre'
-
+import { posts } from '../../../../utils/services'
 // interface Props {
 //   params: {
 //     slug: string
@@ -22,13 +18,13 @@ const mdxComponents = {
 }
 
 export const generateStaticParams = () => {
-  return allPosts.map((post) => ({
+  return posts.map((post) => ({
     slug: sluggify(post._raw.flattenedPath)
   }))
 }
 
 export const generateMetadata = ({ params }) => {
-  const post = allPosts.find(
+  const post = posts.find(
     (p) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
   )
 
@@ -64,11 +60,11 @@ export const generateMetadata = ({ params }) => {
   }
 }
 const PostSlug = ({ params }) => {
-  const post = allPosts.find(
+  const post = posts.find(
     (p) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
   )
   const relatedPosts = post
-    ? allPosts.filter(
+    ? posts.filter(
         (p) => sluggify(p.category) === sluggify(post.category) && p !== post
       )
     : []
@@ -91,9 +87,11 @@ const PostSlug = ({ params }) => {
             className="h-full w-full max-w-full p-4 rounded object-contain"
             src={`${post.banner}`}
           />
+        {post.caption?<center className='py-4 text-sm'>Image Source:{post.caption}</center>:null}
         </div>
+            
 
-        <h1 className="mt-6 text-center text-2xl font-bold uppercase">
+        <h1 className="mt-12 text-center text-2xl font-bold uppercase">
           {post.title}
         </h1>
         <div className="mb-8 text-center">
@@ -115,7 +113,7 @@ const PostSlug = ({ params }) => {
           ) : null}
           {relatedPosts.length > 0
             ? relatedPosts.map((post, index) => (
-                <Link className="grid" key={index} href={sluggify(post.url)}>
+                <Link key={index} className="grid"  href={sluggify(post.url)}>
                   <div className="h-[15em]">
                     <img
                       loading="lazy"

@@ -19,12 +19,12 @@ const PostItem = ({ post }: Props) => {
         <img className='w-full h-full object-contain bg-white ' src={post.banner}/>
       </div> */}
 
-      <h2 className="-mb-0 bg-gradient-to-r from-primary-600 via-primary-400 to-primary-900 bg-clip-text text-2xl font-bold text-transparent">
+      <h2 className="-mb-0  text-2xl font-bold">
         <Link href={sluggify(post.url)}>{post.title}</Link>
       </h2>
-      <p className="text-sm">
+      <p className="text-base">
         Posted in{' '}
-        <span className="text-great-blue-400">
+        <span className="text-great-blue-400 font-semibold">
           <Link href={`/categories/${sluggify(post.category)}`}>
             {post.category}
           </Link>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    @apply bg-primary-100 transition-all  dark:bg-primary-950 dark:text-primary-400 text-primary-600;
+    @apply bg-primary-100 transition-all  dark:bg-primary-950 dark:text-primary-300 text-primary-800;
 }
 
 h1 {
@@ -14,11 +14,11 @@ h2 {
 }
 
 h3 {
-    @apply my-4 font-bold text-2xl  md:text-3xl
+    @apply my-4 font-bold text-primary-800 dark:text-primary-200 text-2xl  md:text-3xl
 }
 
 p {
-    @apply text-lg md:text-xl  text-primary-600 dark:text-primary-400  my-2
+    @apply text-lg md:text-xl  text-primary-900 dark:text-primary-200  my-2
 }
 
 p code {

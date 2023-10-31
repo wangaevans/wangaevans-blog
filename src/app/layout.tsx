@@ -5,7 +5,7 @@ import Navbar from '../components/navbar'
 import ThemeProvider from '../components/theme/theme-provider'
 import Footer from '../components/footer'
 import { Metadata } from 'next'
-import GoogleAnalytics from './GoogleAnalytics'
+import GoogleAnalytics from '../components/GoogleAnalytics'
 import Script from 'next/script'
 const commissioner = Commissioner({ subsets: ['latin'] })
 
@@ -32,7 +32,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Script id="google-tag-manager" strategy="afterInteractive">
+      <Script defer id="google-tag-manager" strategy="afterInteractive">
         {`
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

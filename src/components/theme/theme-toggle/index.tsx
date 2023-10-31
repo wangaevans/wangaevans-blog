@@ -13,6 +13,7 @@ const ThemeToggle = ({ ...props }: ThemeToggleProps) => {
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       {...props}
     >
+          <span className='sr-only'>Theme Toggler</span>    
       {theme === "light" ? <FaMoon size={24} /> : <FaSun size={24} />}
     </button>
   )

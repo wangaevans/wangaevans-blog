@@ -3,10 +3,10 @@ import NotFound from '../../not-found'
 
 // eslint-disable-next-contentlayer/generated/generatedcontentlayer/generatedne @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { allCategories, allPosts, Post } from 'contentlayer/generated'
 import { getPagination } from '../../../utils/pagination'
 import Link from 'next/link'
 import { sluggify } from '../../../utils/sluggify'
+import { allCategories, posts } from '../../../utils/services'
 
 interface Props {
   params: {
@@ -35,7 +35,7 @@ export const generateMetadata = ({ params }: Props) => {
 }
 
 const categorySlug = ({ params }: Props) => {
-  const { currentPosts } = getPagination<any>(allPosts);
+  const { currentPosts } = getPagination<any>(posts);
   const category = allCategories.find(
     (p:any) => sluggify(p._raw.flattenedPath) === `categories/${params.slug}`
   );

@@ -15,7 +15,7 @@ export default function Error({
     <>
       <div className="flex min-h-[300px] flex-col items-center justify-center">
         <div className="mb-8 text-center">
-          <h1 className="text-7xl text-rose-500 font-bold">Something went wrong!</h1>
+          <h1 className="text-2xl text-rose-500 font-bold">Something went wrong!</h1>
           {/* <p className='text-rose-400'>{error.message}</p> */}
         </div>
         <button

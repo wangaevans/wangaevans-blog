@@ -1,15 +1,14 @@
 'use client'
+
 import React from 'react'
 import PostList from '../post/PostList'
 import { getPagination } from '../../utils/pagination'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import { allPosts, Post } from 'contentlayer/generated'
 import Link from 'next/link'
 import { useSearch } from 'react-use-search'
 import { AiOutlineSearch } from 'react-icons/ai'
+import { posts } from '../../utils/services'
 
-const posts: Post[] = allPosts.sort((a, b) => b.date.localeCompare(a.date))
+
 const predicate: any = (post: any, query: any) =>
   post.title.toLowerCase().includes(query.toLowerCase()) |
   post.body.code.toLowerCase().includes(query.toLowerCase())
@@ -38,7 +37,7 @@ export default function Hero() {
         <>
           <PostList posts={currentPosts} />
           <Link
-            className="text-semibold mx-auto w-fit rounded-lg bg-great-blue-400 px-6 py-3 text-white hover:bg-great-blue-500 md:text-xl"
+            className="text-semibold mx-auto w-fit rounded-lg bg-great-blue-500 px-6 py-3 text-white hover:opacity-95 md:text-xl"
             href={'/blog/posts'}
           >
             View All Articles
@@ -63,6 +62,7 @@ export default function Hero() {
         <h1 className="bg-gradient-to-r from-great-blue-400 to-great-blue-600 bg-clip-text pt-5 text-4xl font-semibold text-transparent  md:pt-14 md:text-6xl">
           Hi, Welcome!, I'm Evans <br />
         </h1>
+
         <p className="my-2 md:text-xl">
           I love writing about tech and that's why i made this platform, I share my tech journey on X, commit code to Github.
         </p>
@@ -82,6 +82,8 @@ export default function Hero() {
                 className="rounded bg-great-blue-400 px-5 py-3 text-white"
                 onClick={() => setQuery(query)}
               >
+          <span className='sr-only'>Search Post</span>    
+
                 <AiOutlineSearch size={24} />
               </button>
             </div>

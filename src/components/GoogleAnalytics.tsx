@@ -10,10 +10,12 @@ const GoogleAnalytics = () => {
     return (
         <>
             <Script
+            defer
                 strategy="afterInteractive"
                 src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
             />
             <Script
+            defer
                 id="gtag-init"
                 strategy="afterInteractive"
                 dangerouslySetInnerHTML={{
