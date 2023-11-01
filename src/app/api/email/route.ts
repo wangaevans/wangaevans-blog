@@ -23,7 +23,6 @@ export async function POST(request: NextRequest) {
   });
 
   const mailOptions: Mail.Options = {
-    from: email,
     to: process.env.NEXT_PUBLIC_EMAIL,
     replyTo:email,
     sender:email,
