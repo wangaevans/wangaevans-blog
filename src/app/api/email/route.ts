@@ -35,6 +35,7 @@ export async function POST(request: NextRequest) {
     <div>${email}</div>
     <h2>Subject:${subject}</h2>
     <div>${ subject}</div>
+    <div>source:wangaevans.com/contact</div>
    `
   };
 
