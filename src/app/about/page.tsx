@@ -17,7 +17,7 @@ export const generateMetadata = () => {
     title: author?.name,
     description: author?.bio,
     alternates: {
-      canonical: '/about'
+      canonical: process.env.NEXT_PUBLIC_SITE_URL+'about'
     }
   }
 }

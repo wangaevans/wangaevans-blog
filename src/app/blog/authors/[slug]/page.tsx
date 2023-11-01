@@ -31,7 +31,7 @@ export const generateMetadata = ({ params }: Props) => {
     title: author?.name,
     description: author?.bio,
     alternates: {
-      canonical: `/${params.slug}`
+      canonical: process.env.NEXT_PUBLIC_SITE_URL+params.slug
     }
   }
 }

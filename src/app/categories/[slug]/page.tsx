@@ -29,7 +29,7 @@ export const generateMetadata = ({ params }: Props) => {
     title: category?.title,
     description: category?.description,
     alternates: {
-      canonical: `/${params.slug}`
+      canonical: process.env.NEXT_PUBLIC_SITE_URL+params.slug
     }
   }
 }

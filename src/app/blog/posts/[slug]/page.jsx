@@ -53,7 +53,7 @@ export const generateMetadata = ({ params }) => {
     authors: [{ name: post?.author, url: '/' }],
     category: 'tech blog',
     alternates: {
-      canonical: `/${params.slug}`
+      canonical: process.env.NEXT_PUBLIC_SITE_URL+params.slug
     },
     other: {
       'article:published_time': post?.date

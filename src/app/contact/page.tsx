@@ -6,7 +6,7 @@ export async function generateMetadata() {
     title: "Contact Us",
     description: "Lets us know what you have in mind",
     alternates: {
-      canonical: `/contact`
+      canonical: process.env.NEXT_PUBLIC_SITE_URL+"contact"
     }
   }
 }

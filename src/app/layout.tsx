@@ -20,10 +20,13 @@ export const metadata: Metadata = {
     follow: true
   },
   verification: { google: '7AwiOr9kc6G5cwPLYzDyv-unPEiH9jpw-ZF3XgB2kuI' },
-  metadataBase: new URL('https://wangaevans.com'),
-  alternates: {
-    canonical: '/'
-  }
+  metadataBase: new URL(
+    `${
+      process.env.NODE_ENV !== 'production'
+        ? process.env.NEXT_PUBLIC_SITE_URL
+        : 'https://wangaevans.com'
+    }`
+  )
 }
 interface RootLayoutProps {
   children: React.ReactNode

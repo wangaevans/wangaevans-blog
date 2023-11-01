@@ -120,12 +120,39 @@ export const Author = defineDocumentType(() => ({
     }
   }
 }))
+export const Privacy = defineDocumentType(() => ({
+  name: 'Privacy',
+  filePathPattern: `privacy/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      required: true
+    },
+    description: {
+      type: 'string',
+      description: 'The description of the Privacy Policy',
+      required: false
+    },
+    date: {
+      type: 'date',
+      description: 'The date of the privacy policy',
+      required: true
+    }
+  },
+  computedFields: {
+    url: {
+      type: 'string',
+      resolve: (privacy) => `/${privacy._raw.flattenedPath}`
+    }
+  }
+}))
 
 // const rehypeoptions =
 
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Post, Category, Author],
+  documentTypes: [Post, Category, Author,Privacy],
   mdx: {
     rehypePlugins: [
       () => (tree) => {

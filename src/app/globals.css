@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    @apply bg-primary-100 transition-all dark:bg-primary-950 dark:text-primary-300 text-primary-800;
+    @apply bg-primary-100 min-h-screen flex flex-col transition-all dark:bg-primary-950 dark:text-primary-300 text-primary-800;
 }
 
 h1 {
