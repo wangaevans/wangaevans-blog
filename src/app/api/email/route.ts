@@ -25,9 +25,17 @@ export async function POST(request: NextRequest) {
   const mailOptions: Mail.Options = {
     from: email,
     to: process.env.NEXT_PUBLIC_EMAIL,
+    replyTo:email,
+    sender:email,
+    inReplyTo:email,
     // cc: email, (uncomment this line if you want to send a copy to the sender)
     subject: `${subject})`,
-    text: message,
+    html: `
+    <h2>From:</h2>
+    <div>${email}</div>
+    <h2>Subject:${subject}</h2>
+    <div>${ subject}</div>
+   `
   };
 
   const sendMailPromise = () =>
