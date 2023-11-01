@@ -12,7 +12,7 @@ module.exports = {
         center: true,
         padding: '.5rem',
         screens: {
-          md: '1180px'
+          md: '896px'
         }
       },
       colors: {

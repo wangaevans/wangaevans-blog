@@ -57,23 +57,10 @@ const authorSlug = () => {
               <MDXContent />
             </div>
 
-            <h1 className="mt-7 text-2xl font-bold md:text-3xl">
-              {filteredPosts.length} Post{filteredPosts.length == 1 ? '' : 's'}{' '}
-              published by me
-            </h1>
-            {filteredPosts.length > 0 ? (
-              filteredPosts.map((post, index) => (
-                <Link
-                  key={index}
-                  href={sluggify(post.url)}
-                  className="w-fit py-2 text-lg text-primary-500 hover:text-great-blue-700 md:text-xl"
-                >
-                  {index + 1}. {post.title}
-                </Link>
-              ))
-            ) : (
-              <p>No posts found for this author.</p>
-            )}
+            <Link href={'/blog/authors/wanga-evans'} className="mt-7 text-great-blue-400 underline text-xl font-bold md:text-2xl">
+              View  {filteredPosts.length} Post{filteredPosts.length == 1 ? '' : 's'}{' '}
+             I published
+            </Link>
           </div>
           <div className="mt-8 text-center">
             <ButtonBack>Back</ButtonBack>

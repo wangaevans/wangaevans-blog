@@ -59,7 +59,7 @@ const authorSlug = ({ params }: Props) => {
     <div>
       <div className="container px-5 md:px-2 mt-10 grid">
         <div className="block  md:gap-4">
-          <div className="grid place-items-center mb-5">
+          {/* <div className="grid place-items-center mb-5">
             <Image
               width={200}
               height={200}
@@ -67,16 +67,13 @@ const authorSlug = ({ params }: Props) => {
               alt={author.name}
               src={author.avatar}
             />
-          </div>
+          </div> */}
 
           <div className="grid">
-            <MDXContent />
+            {/* <MDXContent /> */}
           </div>
         </div>
-      
-        <h1 className="mt-7 text-2xl font-bold md:text-3xl">
-          {filteredPosts.length} Posts published by me
-        </h1>
+      <h2>All Posts Published by {author.name}</h2>
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post, index) => (
             <Link

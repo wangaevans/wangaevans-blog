@@ -1,16 +1,22 @@
-"use client"
 import Link from 'next/link'
 import Hero from '../components/hero'
 import { AiOutlineWhatsApp } from 'react-icons/ai'
+import { Metadata } from 'next'
+
+export const metadata:Metadata={
+  other:{
+    canonical:"/"
+  }
+}
 const Home = () => {
   return (
     <div>
       <div className="container">
         <Hero />
       </div>
-      <div className="my-5 rounded bg-primary-200 dark:bg-primary-900 p-3">
-        <div className="container py-4">
-          <h2 className="text-center text-4xl py-3 font-semibold text-great-blue-400">
+      <div className="mb-5 mt-10 rounded bg-primary-200 dark:bg-primary-900 p-3">
+        <div className="container py-2 md:py-4">
+          <h2 className="text-center text-[2.1rem] py-3 font-semibold text-great-blue-400">
             What are you working on
           </h2>
           <p className='text-center'>
