@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "lib/gtag.js", "components/Pre.jsx", "components/toc.jsx", "app/blog/posts/[slug]/page.jsx"  ],
+, "lib/gtag.js", "components/Pre.jsx", "components/toc.tsx", "app/blog/posts/[slug]/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]

@@ -29,7 +29,7 @@ export const generateMetadata = ({ params }: Props) => {
     title: category?.title,
     description: category?.description,
     alternates: {
-      canonical: `https://wangaevans.com/${params.slug}`
+      canonical: `/${params.slug}`
     }
   }
 }
