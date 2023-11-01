@@ -6,6 +6,7 @@ import { sendEmail } from '../../utils/sendmail'
 import { useRouter } from 'next/navigation'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { useState } from 'react'
 export type FormData = {
   subject: string
   email: string
@@ -13,8 +14,10 @@ export type FormData = {
 }
 export function ContactForm() {
   const { register, handleSubmit, reset } = useForm<FormData>()
+  const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
   async function onSubmit(data: FormData) {
+    setIsLoading(true)
     try {
       const response = await sendEmail(data)
       if (response.success) {
@@ -38,6 +41,7 @@ export function ContactForm() {
       })
       console.error('An error occurred while sending email:', error)
     }
+    setIsLoading(false)
   }
   return (
     <section className=" dark:bg-primary-950">
@@ -98,10 +102,14 @@ export function ContactForm() {
           </div>
           <button
             type="submit"
-            className="flex items-center rounded-lg bg-primary-900  px-5 py-3 text-center text-sm font-medium text-white hover:bg-primary-900 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-primary-900 sm:w-fit"
+            className="flex items-center rounded-lg bg-great-blue-400  px-5 py-3 text-center text-sm font-medium text-white hover:bg-great-blue-500  focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-great-blue-500  dark:hover:bg-great-blue-400 dark:focus:ring-primary-900 sm:w-fit"
           >
-            Send message{' '}
-            <AiOutlineArrowRight className="ml-2 animate-pulse" size={22} />
+            {isLoading ? 'Loading...' : 'Send message'}
+            {isLoading ? (
+              ''
+            ) : (
+              <AiOutlineArrowRight className="ml-2 animate-pulse" size={22} />
+            )}
           </button>
         </form>
       </div>
