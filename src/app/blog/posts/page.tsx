@@ -10,7 +10,8 @@ export const metadata:Metadata = {
   title: 'All posts',
   description: 'All published posts',
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_SITE_URL+posts
+    canonical: process.env.NEXT_PUBLIC_SITE_URL+ "posts"
+    
   }
 }
 
