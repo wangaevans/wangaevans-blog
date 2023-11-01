@@ -5,8 +5,8 @@ import Navbar from '../components/navbar'
 import ThemeProvider from '../components/theme/theme-provider'
 import Footer from '../components/footer'
 import { Metadata } from 'next'
-import { GoogleAnalytics } from '@eisberg-labs/next-google-analytics'
 import Script from 'next/script'
+import GoogleAnalytics from '../components/GoogleAnalytics'
 const commissioner = Commissioner({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -41,7 +41,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         `}
       </Script>
       <body className={`${commissioner.className}`}>
-        <GoogleAnalytics trackingId={'G-9R6MXGMBWD'} />
+        <GoogleAnalytics />
         <ThemeProvider>
           <Navbar branding={config.site.branding} links={config.site.links} />
           {children}
