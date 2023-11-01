@@ -12,7 +12,7 @@ export default function CopyButton({text}:any) {
         },1000)
     }
   return (
-    <button className='transition-all' disabled={isCopied} onClick={copy}>
+    <button className='transition-all mr-4' disabled={isCopied} onClick={copy}>
         {isCopied?<BsClipboardCheck  aria-description="copied to clipboard" className='text-green-400' />:<BsClipboard className="text-primary-400" aria-description="copy to clipboard"/>}
     </button>
   )
