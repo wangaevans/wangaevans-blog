@@ -27,7 +27,7 @@ export default function Navbar({ links, branding }: NavbarProps) {
   return (
     <>
       <nav className="sticky left-0 top-0 z-20 w-full   bg-primary-100  dark:bg-primary-950">
-        <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-8">
+        <div className="flex container flex-wrap items-center justify-between py-8 px-4 md:px-8">
           <a href="/" className="flex items-center">
             {/* image */}
             <span className="whitespace-nowrap text-2xl font-semibold dark:text-primary-200">
@@ -35,7 +35,7 @@ export default function Navbar({ links, branding }: NavbarProps) {
             </span>
           </a>
           <div className="flex items-center md:order-2">
-            <ThemeToggle className="mr-4 text-xl" aria-description='theme button' />
+            <ThemeToggle className="mr-2 text-xl" aria-description='theme button' />
             <button
               type="button"
               onClick={handleClick}
@@ -43,9 +43,9 @@ export default function Navbar({ links, branding }: NavbarProps) {
             >
               <span className='sr-only'>Menu button</span>
               {isOpen ? (
-                <AiOutlineClose size={22} />
+                <AiOutlineClose size={22} aria-description='close menu'/>
               ) : (
-                <AiOutlineMenu size={22} />
+                <AiOutlineMenu size={22} aria-description='open menu' />
               )}
             </button>
           </div>
@@ -62,7 +62,7 @@ export default function Navbar({ links, branding }: NavbarProps) {
                       <Link
                         href={link.href}
                         className={`${
-                          pathname === link.href ? 'text-great-blue-400' : ''
+                          pathname == link.href ? 'text-great-blue-400' : ''
                         } block rounded py-2 pl-3 pr-4 text-lg hover:text-great-blue-400 md:bg-transparent md:p-0  `}
                         aria-current="page"
                       >

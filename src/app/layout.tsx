@@ -5,7 +5,7 @@ import Navbar from '../components/navbar'
 import ThemeProvider from '../components/theme/theme-provider'
 import Footer from '../components/footer'
 import { Metadata } from 'next'
-import GoogleAnalytics from '../components/GoogleAnalytics'
+import { GoogleAnalytics } from '@eisberg-labs/next-google-analytics'
 import Script from 'next/script'
 const commissioner = Commissioner({ subsets: ['latin'] })
 
@@ -15,15 +15,14 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico'
   },
-  robots:{
-    index:true,
-    follow:true,
+  robots: {
+    index: true,
+    follow: true
   },
-  verification: { google: "7AwiOr9kc6G5cwPLYzDyv-unPEiH9jpw-ZF3XgB2kuI" } ,
+  verification: { google: '7AwiOr9kc6G5cwPLYzDyv-unPEiH9jpw-ZF3XgB2kuI' },
   metadataBase: new URL('https://wangaevans.com'),
-  alternates:{
-    canonical:'/',
-   
+  alternates: {
+    canonical: '/'
   }
 }
 interface RootLayoutProps {
@@ -40,20 +39,19 @@ export default function RootLayout({ children }: RootLayoutProps) {
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-WPL65WDW');
         `}
-    </Script>
+      </Script>
       <body className={`${commissioner.className}`}>
-       
-          <GoogleAnalytics/>
+        <GoogleAnalytics trackingId={'G-9R6MXGMBWD'} />
         <ThemeProvider>
           <Navbar branding={config.site.branding} links={config.site.links} />
           {children}
           <Footer copyright={config.site.copyright} />
         </ThemeProvider>
         <noscript
-        dangerouslySetInnerHTML={{
-        __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPL65WDW" height="0" width="0" style="display: none; visibility: hidden;"></iframe>`,
-        }} 
-    />
+          dangerouslySetInnerHTML={{
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPL65WDW" height="0" width="0" style="display: none; visibility: hidden;"></iframe>`
+          }}
+        />
       </body>
     </html>
   )

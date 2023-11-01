@@ -7,6 +7,7 @@ import readingTime from 'reading-time'
 import Link from 'next/link'
 import Pre from '../../../../components/Pre'
 import { posts } from '../../../../utils/services'
+import ReadingProgressBar from '../../../../components/reading-progress-bar'
 // interface Props {
 //   params: {
 //     slug: string
@@ -80,6 +81,7 @@ const PostSlug = ({ params }) => {
 
   return (
     <div>
+        <ReadingProgressBar/>
       <div className="container  px-5 ">
         <div className=" h-[22rem] w-fit mx-auto rounded bg-primary-200 ">
           <img

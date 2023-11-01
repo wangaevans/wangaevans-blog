@@ -23,21 +23,24 @@ export function ContactForm() {
       if (response.success) {
         reset()
         toast.success('Email sent successfully!', {
-          position: toast.POSITION.TOP_CENTER
+          position: toast.POSITION.TOP_CENTER,
+          delay:3000
         })
         // Redirect to homepage after the toast duration
         setTimeout(() => {
           router.push('/')
-        }, 5000) // 5000 milliseconds = 5 seconds
+        }, 3000) // 5000 milliseconds = 5 seconds
       } else {
         toast.error(`Failed to send email: ${response.status}`, {
-          position: toast.POSITION.TOP_CENTER
+          position: toast.POSITION.TOP_CENTER,
+          delay:3000
         })
         console.error(`Failed to send email: ${response.status}`)
       }
     } catch (error) {
       toast.error('An error occurred while sending email', {
-        position: toast.POSITION.TOP_CENTER
+        position: toast.POSITION.TOP_CENTER,
+        delay:3000
       })
       console.error('An error occurred while sending email:', error)
     }
