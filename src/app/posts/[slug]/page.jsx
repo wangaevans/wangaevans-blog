@@ -83,7 +83,7 @@ const PostSlug = ({ params }) => {
     <div>
       <ReadingProgressBar />
       <div className="container  px-5 ">
-        <div className=" w-[800px] h-[400px] mx-auto rounded bg-primary-200 ">
+        <div className=" w-full h-[300px] md:h-[400px] max-w-screen mx-auto rounded bg-primary-200 ">
           <img
             className="h-full w-full shadow-lg rounded-t-lg lg:rounded-lg object-cover"
             src={`${post.banner}`}

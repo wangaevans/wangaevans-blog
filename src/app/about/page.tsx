@@ -57,7 +57,7 @@ const authorSlug = () => {
               <MDXContent />
             </div>
               <Link
-                href={'/blog/authors/wanga-evans'}
+                href={'/authors/wanga-evans'}
                 className="text-xl mt-7 font-bold text-great-blue-400 underline md:text-2xl"
               >
                 View {filteredPosts.length} Post
