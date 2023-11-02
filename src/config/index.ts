@@ -12,19 +12,25 @@ export default {
 			{
 				title: "Home",
 				href: "/",
+				priority: 1.0,
 			},
 
 			{
 				title: "About",
 				href: "/about",
+				priority: 0.8,
 			},
 			{
 				title: "Categories",
 				href: "/categories",
+				priority: 0.8,
+
 			},
 			{
 				title: "Contact",
 				href: "/contact",
+				priority: 0.8,
+
 			},
 			
 		],

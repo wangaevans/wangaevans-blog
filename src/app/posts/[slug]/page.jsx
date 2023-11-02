@@ -20,13 +20,13 @@ const mdxComponents = {
 
 export const generateStaticParams = () => {
   return posts.map((post) => ({
-    slug: sluggify(post._raw.flattenedPath)
+    slug: sluggify(post.title)
   }))
 }
 
 export const generateMetadata = ({ params }) => {
   const post = posts.find(
-    (p) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
+    (p) => sluggify(p.title) === `${params.slug}`
   )
 
   return {
@@ -62,7 +62,7 @@ export const generateMetadata = ({ params }) => {
 }
 const PostSlug = ({ params }) => {
   const post = posts.find(
-    (p) => sluggify(p._raw.flattenedPath) === `posts/${params.slug}`
+    (p) => sluggify(p._raw.flattenedPath) === `${params.slug}`
   )
   const relatedPosts = post
     ? posts.filter(

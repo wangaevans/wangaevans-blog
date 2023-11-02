@@ -15,14 +15,14 @@ interface Props {
 }
 
 export const generateStaticParams = () => {
-  return allCategories.map((category:any) => ({
-    slug: sluggify(category._raw.flattenedPath)
+  return allCategories.map((category: any) => ({
+    slug: category.title.toLowerCase()
   }))
 }
 
 export const generateMetadata = ({ params }: Props) => {
   const category = allCategories.find(
-    (p:any) => sluggify(p._raw.flattenedPath) === `categories/${params.slug}`
+    (c: any) => sluggify(c.title.toLowerCase()) === `${params.slug}`
   )
 
   return {
@@ -35,38 +35,45 @@ export const generateMetadata = ({ params }: Props) => {
 }
 
 const categorySlug = ({ params }: Props) => {
-  const { currentPosts } = getPagination<any>(posts);
+  const { currentPosts } = getPagination<any>(posts)
   const category = allCategories.find(
-    (p:any) => sluggify(p._raw.flattenedPath) === `categories/${params.slug}`
-  );
+    (c: any) => c.title.toLowerCase() === `${params.slug}`
+  )
 
   if (!category) {
-    return <NotFound />;
+    return <NotFound />
   }
 
-  const filteredPosts = currentPosts.filter((post) =>
-    sluggify(post.category)=== sluggify(category.title)
-  );
+  const filteredPosts = currentPosts.filter(
+    (post) => sluggify(post.category) === sluggify(category.title)
+  )
 
   return (
     <>
-        <div className='container  px-5   grid'>
-          <h1 className='text-2xl md:text-3xl font-bold mt-10'>{filteredPosts.length} Post{filteredPosts.length==1?"":"s"} in {category.title}</h1>
-          {filteredPosts.length > 0 ? (
-            filteredPosts.map((post,index) => (
-              <Link key={index} href={sluggify(post.url)} className='py-4 text-xl text-primary-500 w-fit hover:text-great-blue-700'>
-               {index+1}. {post.title}
-              </Link>
-            ))
-          ) : (
-            <p>No posts found in this category.</p>
-          )}
-        </div>
-        <div className="mt-8 text-center">
-          <ButtonBack>Back</ButtonBack>
-        </div>
-        </>
-  );
-};
+      <div className="container  grid   px-5">
+        <h1 className="mt-10 text-2xl font-bold md:text-3xl">
+          {filteredPosts.length} Post{filteredPosts.length == 1 ? '' : 's'} in{' '}
+          {category.title}
+        </h1>
+        {filteredPosts.length > 0 ? (
+          filteredPosts.map((post, index) => (
+            <Link
+              key={index}
+              href={sluggify(post.url)}
+              className="w-fit py-4 text-xl text-primary-500 hover:text-great-blue-700"
+            >
+              {index + 1}. {post.title}
+            </Link>
+          ))
+        ) : (
+          <p>No posts found in this category.</p>
+        )}
+      </div>
+      <div className="mt-8 text-center">
+        <ButtonBack>Back</ButtonBack>
+      </div>
+    </>
+  )
+}
 
-export default categorySlug;
+export default categorySlug

@@ -38,7 +38,7 @@ export default function Hero() {
           <PostList posts={currentPosts} />
           <Link
             className="text-semibold mx-auto w-fit rounded-lg bg-great-blue-500 px-6 py-3 text-white hover:opacity-95 md:text-xl"
-            href={'/blog/posts'}
+            href={'/posts'}
           >
             View All Articles
           </Link>
