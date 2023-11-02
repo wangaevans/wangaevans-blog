@@ -17,7 +17,7 @@ export const generateMetadata = () => {
     title: author?.name,
     description: author?.bio,
     alternates: {
-      canonical: process.env.NEXT_PUBLIC_SITE_URL+'about'
+      canonical: process.env.NEXT_PUBLIC_SITE_URL + '/about'
     }
   }
 }
@@ -53,14 +53,17 @@ const authorSlug = () => {
             />
           </div>
           <div className="mx-auto max-w-4xl">
-            <div className="grid ">
+            <div className="grid mb-14">
               <MDXContent />
             </div>
-
-            <Link href={'/blog/authors/wanga-evans'} className="mt-7 text-great-blue-400 underline text-xl font-bold md:text-2xl">
-              View  {filteredPosts.length} Post{filteredPosts.length == 1 ? '' : 's'}{' '}
-             I published
-            </Link>
+              <Link
+                href={'/blog/authors/wanga-evans'}
+                className="text-xl mt-7 font-bold text-great-blue-400 underline md:text-2xl"
+              >
+                View {filteredPosts.length} Post
+                {filteredPosts.length == 1 ? '' : 's'} I published
+              </Link>
+           
           </div>
           <div className="mt-8 text-center">
             <ButtonBack>Back</ButtonBack>

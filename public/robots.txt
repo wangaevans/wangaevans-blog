@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://wangaevans.com
+Host: https://wangaevans.com/
 
 # Sitemaps
 Sitemap: https://wangaevans.com/sitemap.xml

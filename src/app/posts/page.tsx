@@ -1,16 +1,16 @@
 import { Metadata } from 'next'
-import PostList from '../../../components/post/PostList'
-import PostPagination from '../../../components/post/PostPagination'
+import PostList from '../../components/post/PostList'
+import PostPagination from '../../components/post/PostPagination'
 
-import { getPagination } from '../../../utils/pagination'
-import { posts } from '../../../utils/services'
+import { getPagination } from '../../utils/pagination'
+import { posts } from '../../utils/services'
 
 
 export const metadata:Metadata = {
   title: 'All posts',
   description: 'All published posts',
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_SITE_URL+ "posts"
+    canonical: process.env.NEXT_PUBLIC_SITE_URL+ "/posts"
     
   }
 }

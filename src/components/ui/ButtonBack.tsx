@@ -13,7 +13,7 @@ const ButtonBack = ({ children }: Props) => {
     <button
       type="button"
       onClick={() => router.back()}
-      className="rounded bg-gradient-to-r from-great-blue-500 to-great-blue-700 px-4 py-2 text-white hover:from-green-400 hover:to-great-blue-500"
+      className="rounded bg-gradient-to-r from-great-blue-500 to-great-blue-700 px-4 py-2 text-white hover:from-great-blue-300 hover:to-great-blue-500"
     >
       {children}
     </button>

@@ -1,13 +1,13 @@
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import Toc from '../../../../components/toc'
-import NotFound from '../../../not-found'
-import { sluggify } from '../../../../utils/sluggify'
-import config from '../../../../config'
+import Toc from '../../../components/toc'
+import NotFound from '../../not-found'
+import { sluggify } from '../../../utils/sluggify'
+import config from '../../../config'
 import readingTime from 'reading-time'
 import Link from 'next/link'
-import Pre from '../../../../components/Pre'
-import { posts } from '../../../../utils/services'
-import ReadingProgressBar from '../../../../components/reading-progress-bar'
+import Pre from '../../../components/Pre'
+import { posts } from '../../../utils/services'
+import ReadingProgressBar from '../../../components/reading-progress-bar'
 // interface Props {
 //   params: {
 //     slug: string
@@ -15,7 +15,7 @@ import ReadingProgressBar from '../../../../components/reading-progress-bar'
 // }
 const mdxComponents = {
   Toc,
-  pre:Pre
+  pre: Pre
 }
 
 export const generateStaticParams = () => {
@@ -53,7 +53,7 @@ export const generateMetadata = ({ params }) => {
     authors: [{ name: post?.author, url: '/' }],
     category: 'tech blog',
     alternates: {
-      canonical: process.env.NEXT_PUBLIC_SITE_URL+params.slug
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${params.slug}`
     },
     other: {
       'article:published_time': post?.date
@@ -66,8 +66,8 @@ const PostSlug = ({ params }) => {
   )
   const relatedPosts = post
     ? posts.filter(
-        (p) => sluggify(p.category) === sluggify(post.category) && p !== post
-      )
+      (p) => sluggify(p.category) === sluggify(post.category) && p !== post
+    )
     : []
 
   let MDXContent
@@ -81,17 +81,16 @@ const PostSlug = ({ params }) => {
 
   return (
     <div>
-        <ReadingProgressBar/>
+      <ReadingProgressBar />
       <div className="container  px-5 ">
-        <div className=" h-[22rem] w-fit mx-auto rounded bg-primary-200 ">
+        <div className=" w-[800px] h-[400px] mx-auto rounded bg-primary-200 ">
           <img
-            loading="lazy"
-            className="h-full w-full max-w-full p-4 rounded object-contain"
+            className="h-full w-full shadow-lg rounded-t-lg lg:rounded-lg object-cover"
             src={`${post.banner}`}
           />
-        {post.caption?<center className='py-4 text-sm'>Image Source:{post.caption}</center>:null}
+          {post.caption ? <center className='py-4 text-sm'>Image Source:{post.caption}</center> : null}
         </div>
-            
+
 
         <h1 className="mt-12 text-center text-2xl font-bold uppercase">
           {post.title}
@@ -115,30 +114,30 @@ const PostSlug = ({ params }) => {
           ) : null}
           {relatedPosts.length > 0
             ? relatedPosts.map((post, index) => (
-                <Link key={index} className="grid"  href={sluggify(post.url)}>
-                  <div className="h-[15em]">
-                    <img
-                      loading="lazy"
-                      className="mr-3 h-full w-full rounded-lg bg-slate-200 object-contain p-1"
-                      alt="Image"
-                      src={post.banner}
-                    />
-                  </div>
-                  <h2 className=" w-fit pt-2 text-xl md:2xl text-primary-400 hover:text-great-blue-500">
-                    {post.title}
-                  </h2>
-                  <div className="-mt-2 flex items-center space-x-3">
-                    <time className="mr-3">
-                      {new Date(post.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric'
-                      })}
-                    </time>
-                    {readingTime(post.body.code).text}
-                  </div>
-                </Link>
-              ))
+              <Link key={index} className="grid" href={sluggify(post.url)}>
+                <div className="h-[15em]">
+                  <img
+                    loading="lazy"
+                    className="mr-3 h-full w-full rounded-lg bg-slate-200 object-contain p-1"
+                    alt="Image"
+                    src={post.banner}
+                  />
+                </div>
+                <h2 className=" w-fit pt-2 text-xl md:2xl text-primary-400 hover:text-great-blue-500">
+                  {post.title}
+                </h2>
+                <div className="-mt-2 flex items-center space-x-3">
+                  <time className="mr-3">
+                    {new Date(post.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric'
+                    })}
+                  </time>
+                  {readingTime(post.body.code).text}
+                </div>
+              </Link>
+            ))
             : null}
         </div>
         {/* <div className="mt-8 text-center">

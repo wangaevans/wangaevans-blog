@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: config.site.branding.name,
   description: config.site.branding.description,
   icons: {
-    icon: '/favicon.ico'
+    icon: 'favicon.ico'
   },
   robots: {
     index: true,
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     `${
       process.env.NODE_ENV !== 'production'
-        ? process.env.NEXT_PUBLIC_SITE_URL
-        : 'https://wangaevans.com'
+        ? 'http://localhost:3000'
+        : process.env.NEXT_PUBLIC_SITE_URL
     }`
   )
 }

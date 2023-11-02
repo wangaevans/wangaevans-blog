@@ -8,7 +8,7 @@ export const metadata:Metadata={
   title:allPrivacies[0].title,
   description:allPrivacies[0].description,
   other:{
-    canonical:process.env.NEXT_PUBLIC_SITE_URL+"privacy"
+    canonical:process.env.NEXT_PUBLIC_SITE_URL+"/privacy"
   }
 
 }

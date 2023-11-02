@@ -1,14 +1,13 @@
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
-// eslint-disable-next-contentlayer/generated/generatedcontentlayer/generatedne @typescript-eslint/ban-ts-comment
-// @ts-ignore
+
 import Image from 'next/image'
 import Link from 'next/link'
-import { sluggify } from '../../../../utils/sluggify'
-import { getPagination } from '../../../../utils/pagination'
-import NotFound from '../../../not-found'
-import ButtonBack from '../../../../components/ui/ButtonBack'
-import { allAuthors, posts } from '../../../../utils/services'
+import { sluggify } from '../../../utils/sluggify'
+import { getPagination } from '../../../utils/pagination'
+import NotFound from '../../not-found'
+import ButtonBack from '../../../components/ui/ButtonBack'
+import { allAuthors, posts } from '../../../utils/services'
 
 interface Props {
   params: {
@@ -17,21 +16,21 @@ interface Props {
 }
 
 export const generateStaticParams = () => {
-  return allAuthors.map((author:any) => ({
+  return allAuthors.map((author: any) => ({
     slug: sluggify(author._raw.flattenedPath)
   }))
 }
 
 export const generateMetadata = ({ params }: Props) => {
   const author = allAuthors.find(
-    (p:any) => sluggify(p._raw.flattenedPath) === `authors/${params.slug}`
+    (p: any) => sluggify(p._raw.flattenedPath) === `${params.slug}`
   )
 
   return {
     title: author?.name,
     description: author?.bio,
     alternates: {
-      canonical: process.env.NEXT_PUBLIC_SITE_URL+params.slug
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${params.slug}`
     }
   }
 }
@@ -39,7 +38,7 @@ export const generateMetadata = ({ params }: Props) => {
 const authorSlug = ({ params }: Props) => {
   const { currentPosts } = getPagination<any>(posts)
   const author = allAuthors.find(
-    (p:any) => sluggify(p._raw.flattenedPath) === `authors/${params.slug}`
+    (p: any) => sluggify(p._raw.flattenedPath) === `authors/${params.slug}`
   )
   let MDXContent
   if (!author) {
@@ -50,14 +49,14 @@ const authorSlug = ({ params }: Props) => {
   }
 
   const filteredPosts = currentPosts.filter(
-    (post:any) => sluggify(post.author) === sluggify(author.name)
+    (post: any) => sluggify(post.author) === sluggify(author.name)
   )
   // function getIcon(Icon: any) {
   //   return <div>{Icon && <Icon />}</div>
   // }
   return (
     <div>
-      <div className="container px-5 md:px-2 mt-10 grid">
+      <div className="container mt-10 grid px-5 md:px-2">
         <div className="block  md:gap-4">
           {/* <div className="grid place-items-center mb-5">
             <Image
@@ -69,11 +68,9 @@ const authorSlug = ({ params }: Props) => {
             />
           </div> */}
 
-          <div className="grid">
-            {/* <MDXContent /> */}
-          </div>
+          <div className="grid">{/* <MDXContent /> */}</div>
         </div>
-      <h2>All Posts Published by {author.name}</h2>
+        <h2>All Posts Published by {author.name}</h2>
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post, index) => (
             <Link

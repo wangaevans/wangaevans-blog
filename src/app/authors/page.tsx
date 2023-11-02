@@ -2,7 +2,7 @@ import React from 'react'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { allAuthors,Author } from 'contentlayer/generated'
-import AuthorsList from '../../../components/authors/authors-list'
+import AuthorsList from '../../components/authors/authors-list'
 
 const authors: Author[] = allAuthors
 

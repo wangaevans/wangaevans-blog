@@ -52,7 +52,7 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (post) => `/blog/${post._raw.flattenedPath}`
+      resolve: (post) => `/${post._raw.flattenedPath}`
     }
   }
 }))
@@ -111,12 +111,17 @@ export const Author = defineDocumentType(() => ({
       },
       description: 'The social links of the author',
       required: false
+    },
+    date: {
+      type: 'date',
+      description: 'The date of the author was added',
+      required: true
     }
   },
   computedFields: {
     url: {
       type: 'string',
-      resolve: (author) => `/blog/${author._raw.flattenedPath}`
+      resolve: (author) => `/${author._raw.flattenedPath}`
     }
   }
 }))
