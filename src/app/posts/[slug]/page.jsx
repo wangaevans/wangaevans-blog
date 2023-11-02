@@ -62,7 +62,7 @@ export const generateMetadata = ({ params }) => {
 }
 const PostSlug = ({ params }) => {
   const post = posts.find(
-    (p) => sluggify(p._raw.flattenedPath) === `${params.slug}`
+    (p) => sluggify(p.title) === `${params.slug}`
   )
   const relatedPosts = post
     ? posts.filter(
