@@ -6,7 +6,6 @@ import TimeAgo from 'react-timeago'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { Post } from 'contentlayer/generated'
-import { sluggify } from '../../utils/sluggify'
 
 interface Props {
   post: Post
@@ -20,12 +19,12 @@ const PostItem = ({ post }: Props) => {
       </div> */}
 
       <h2 className="-mb-0  text-2xl font-bold">
-        <Link href={sluggify(post.url)}>{post.title}</Link>
+        <Link href={post.url}>{post.title}</Link>
       </h2>
       <p className="text-base">
         Posted in{' '}
         <span className="text-great-blue-400 font-semibold">
-          <Link href={`/categories/${sluggify(post.category)}`}>
+          <Link href={`/categories/${post.category}`}>
             {post.category}
           </Link>
         </span>

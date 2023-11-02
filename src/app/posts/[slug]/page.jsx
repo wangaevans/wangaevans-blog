@@ -1,7 +1,6 @@
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Toc from '../../../components/toc'
 import NotFound from '../../not-found'
-import { sluggify } from '../../../utils/sluggify'
 import config from '../../../config'
 import readingTime from 'reading-time'
 import Link from 'next/link'
@@ -18,14 +17,10 @@ const mdxComponents = {
   pre: Pre
 }
 
-// export const generateStaticParams = () => {
-//   return posts.map((post) => ({
-//     slug: sluggify(post.title)
-//   }))
-// }
+
 
 export const generateMetadata = ({ params:{slug} }) => {
-  const post = posts.find((p) => sluggify(p.slug) === slug)
+  const post = posts.find((p) => p.slug === slug)
   return {
     title: post?.title,
     description: post?.description,
@@ -110,7 +105,7 @@ const PostSlug = ({ params }) => {
           ) : null}
           {relatedPosts.length > 0
             ? relatedPosts.map((post, index) => (
-              <Link key={index} className="grid" href={sluggify(post.url)}>
+              <Link key={index} className="grid" href={post.url}>
                 <div className="h-[15em]">
                   <img
                     loading="lazy"

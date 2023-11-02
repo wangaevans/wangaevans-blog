@@ -6,7 +6,6 @@ import NotFound from '../../not-found'
 import { getPagination } from '../../../utils/pagination'
 import Link from 'next/link'
 import { Category, allCategories, posts } from '../../../utils/services'
-import { sluggify } from '../../../utils/sluggify'
 
 interface Props {
   params: {
@@ -44,7 +43,7 @@ const categorySlug = ({ params }: { params: { slug: string } }) => {
   }
 
   const filteredPosts = currentPosts.filter(
-    (post) => sluggify(post.category) === category.slug
+    (post) => post.category === category.slug
   )
 
   return (
@@ -59,7 +58,7 @@ const categorySlug = ({ params }: { params: { slug: string } }) => {
             <Link
               key={index}
               href={post.url}
-              className="w-fit py-4 text-xl text-primary-500 hover:text-great-blue-700"
+              className="w-fit py-4 text-xl text-primary-500 hover:text-primary-200"
             >
               {index + 1}. {post.title}
             </Link>

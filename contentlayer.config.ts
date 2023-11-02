@@ -53,7 +53,7 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (post) => `/${post._raw.flattenedPath}`
+      resolve: (post) => `/${sluggify(post._raw.flattenedPath)}`
     },
     slug: {
       type: 'string',
@@ -85,7 +85,7 @@ export const Category = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (category) => `/${category._raw.flattenedPath}`
+      resolve: (category) => `/${sluggify(category._raw.flattenedPath)}`
     },
     slug: {
       type: 'string',
@@ -130,7 +130,7 @@ export const Author = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (author) => `/${author._raw.flattenedPath}`
+      resolve: (author) => `/${sluggify(author._raw.flattenedPath)}`
     },
     slug: {
       type: 'string',
@@ -161,7 +161,7 @@ export const Privacy = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (privacy) => `/${privacy._raw.flattenedPath}`
+      resolve: (privacy) => `/${sluggify(privacy._raw.flattenedPath)}`
     },
     slug: {
       type: 'string',

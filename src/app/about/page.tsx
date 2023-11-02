@@ -40,8 +40,8 @@ const authorSlug = () => {
 
   return (
     <div>
-      <div className="container mt-10 grid select-none px-5 md:px-2">
-        <div className="block md:gap-4">
+      <div className="container mt-10 select-none px-5 md:px-2">
+        <div className="flex flex-col justify-center md:gap-4">
           <div className="mb-5 grid place-items-center">
             <Image
               width={200}
@@ -64,7 +64,7 @@ const authorSlug = () => {
               </Link>
            
           </div>
-          <div className="mt-8 text-center">
+          <div className="mt-8 px-4 text-center">
             <ButtonBack>Back</ButtonBack>
           </div>
         </div>

@@ -31,13 +31,16 @@ export function ContactForm() {
           router.push('/')
         }, 3000) // 5000 milliseconds = 5 seconds
       } else {
+        reset()
         toast.error(`Failed to send email: ${response.status}`, {
           position: toast.POSITION.TOP_CENTER,
           delay:3000
         })
+        
         console.error(`Failed to send email: ${response.status}`)
       }
     } catch (error) {
+      reset()
       toast.error('An error occurred while sending email', {
         position: toast.POSITION.TOP_CENTER,
         delay:3000
@@ -65,7 +68,7 @@ export function ContactForm() {
             <input
               type="email"
               id="email"
-              className="dark:shadow-sm-light block w-full rounded-lg border border-primary-300  p-2.5 text-sm text-primary-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-primary-600 dark:bg-primary-900 dark:text-white dark:placeholder-primary-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+              className="dark:shadow-sm-light block w-full rounded-lg border border-primary-300  p-2.5 text-sm text-primary-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-primary-600 dark:bg-primary-900 bg-primary-50  dark:text-white dark:placeholder-primary-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
               placeholder="youremail@service.com"
               required
               {...register('email', { required: true })}
@@ -81,8 +84,8 @@ export function ContactForm() {
             <input
               type="text"
               id="subject"
-              className="dark:shadow-sm-light block w-full rounded-lg border border-primary-300  p-3 text-sm text-primary-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-primary-600 dark:bg-primary-900 dark:text-white dark:placeholder-primary-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-              placeholder="Let me know how i can help you"
+              className="dark:shadow-sm-light block w-full rounded-lg border border-primary-300  p-3 text-sm text-primary-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-primary-600 dark:bg-primary-900 bg-primary-50  dark:text-white dark:placeholder-primary-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+              placeholder="What is it about?"
               required
               {...register('subject', { required: true })}
             />
@@ -90,15 +93,15 @@ export function ContactForm() {
           <div className="sm:col-span-2">
             <label
               htmlFor="message"
-              className="mb-2 block text-sm font-medium text-primary-900 dark:text-primary-400"
+              className="mb-2 block text-sm font-medium  text-primary-900 dark:text-primary-400"
             >
               Your message
             </label>
             <textarea
               id="message"
               rows={6}
-              className="block w-full rounded-lg border border-primary-300  p-2.5 text-sm text-primary-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-primary-600 dark:bg-primary-900 dark:text-white dark:placeholder-primary-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-              placeholder="Leave a comment..."
+              className="block w-full rounded-lg border border-primary-300  p-2.5 text-sm text-primary-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-primary-600 dark:bg-primary-900 bg-primary-50  dark:text-white dark:placeholder-primary-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+              placeholder="Leave your message here..."
               defaultValue={''}
               {...register('message', { required: true })}
             />
@@ -107,7 +110,7 @@ export function ContactForm() {
             type="submit"
             className="flex items-center rounded-lg bg-great-blue-400  px-5 py-3 text-center text-sm font-medium text-white hover:bg-great-blue-500  focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-great-blue-500  dark:hover:bg-great-blue-400 dark:focus:ring-primary-900 sm:w-fit"
           >
-            {isLoading ? 'Loading...' : 'Send message'}
+            {isLoading ? 'Sending message Please wait a sec...' : 'Send message'}
             {isLoading ? (
               ''
             ) : (
