@@ -1,9 +1,7 @@
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
-
 import Image from 'next/image'
 import Link from 'next/link'
-import { sluggify } from '../../../utils/sluggify'
 import { getPagination } from '../../../utils/pagination'
 import NotFound from '../../not-found'
 import ButtonBack from '../../../components/ui/ButtonBack'
@@ -15,15 +13,10 @@ interface Props {
   }
 }
 
-export const generateStaticParams = () => {
-  return allAuthors.map((author: any) => ({
-    slug: sluggify(author.name)
-  }))
-}
 
 export const generateMetadata = ({ params }: Props) => {
   const author = allAuthors.find(
-    (p: any) => sluggify(p.name) === `${params.slug}`
+    (p: any) => p.slug=== `${params.slug}`
   )
 
   return {
@@ -38,7 +31,7 @@ export const generateMetadata = ({ params }: Props) => {
 const authorSlug = ({ params }: Props) => {
   const { currentPosts } = getPagination<any>(posts)
   const author = allAuthors.find(
-    (a: any) => sluggify(a.name) === `${params.slug}`
+    (a: any) => a.slug=== `${params.slug}`
   )
   let MDXContent
   if (!author) {
@@ -49,7 +42,7 @@ const authorSlug = ({ params }: Props) => {
   }
 
   const filteredPosts = currentPosts.filter(
-    (post: any) => sluggify(post.author) === sluggify(author.name)
+    (post: any) => post.author === author.name
   )
   // function getIcon(Icon: any) {
   //   return <div>{Icon && <Icon />}</div>
@@ -75,7 +68,7 @@ const authorSlug = ({ params }: Props) => {
           filteredPosts.map((post, index) => (
             <Link
               key={index}
-              href={sluggify(post.url)}
+              href={post.url}
               className="w-fit py-4 text-xl text-primary-500 hover:text-great-blue-700"
             >
               {index + 1}. {post.title}

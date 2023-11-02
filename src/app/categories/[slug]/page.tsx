@@ -5,8 +5,8 @@ import NotFound from '../../not-found'
 // @ts-ignore
 import { getPagination } from '../../../utils/pagination'
 import Link from 'next/link'
+import { Category, allCategories, posts } from '../../../utils/services'
 import { sluggify } from '../../../utils/sluggify'
-import { allCategories, posts } from '../../../utils/services'
 
 interface Props {
   params: {
@@ -14,16 +14,13 @@ interface Props {
   }
 }
 
-export const generateStaticParams = () => {
-  return allCategories.map((category: any) => ({
-    slug: category.title.toLowerCase()
-  }))
-}
 
-export const generateMetadata = ({ params }: Props) => {
-  const category = allCategories.find(
-    (c: any) => sluggify(c.title.toLowerCase()) === `${params.slug}`
-  )
+export const generateMetadata = ({
+  params
+}: {
+  params: { slug: string }
+}) => {
+  const category = allCategories.find((p) => p.slug=== params.slug)
 
   return {
     title: category?.title,
@@ -34,18 +31,20 @@ export const generateMetadata = ({ params }: Props) => {
   }
 }
 
-const categorySlug = ({ params }: Props) => {
+const categorySlug = ({ params }: { params: { slug: string } }) => {
   const { currentPosts } = getPagination<any>(posts)
-  const category = allCategories.find(
-    (c: any) => c.title.toLowerCase() === `${params.slug}`
-  )
+  
+  // const slug = decodeURI(params.slug.join('/'))
+  const category = allCategories.find((p) => p.slug== params.slug)
+
+  // const category = allCategories.find((p) => p.title === '')
 
   if (!category) {
     return <NotFound />
   }
 
   const filteredPosts = currentPosts.filter(
-    (post) => sluggify(post.category) === sluggify(category.title)
+    (post) => sluggify(post.category) === category.slug
   )
 
   return (
@@ -59,7 +58,7 @@ const categorySlug = ({ params }: Props) => {
           filteredPosts.map((post, index) => (
             <Link
               key={index}
-              href={sluggify(post.url)}
+              href={post.url}
               className="w-fit py-4 text-xl text-primary-500 hover:text-great-blue-700"
             >
               {index + 1}. {post.title}

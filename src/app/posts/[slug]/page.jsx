@@ -18,17 +18,14 @@ const mdxComponents = {
   pre: Pre
 }
 
-export const generateStaticParams = () => {
-  return posts.map((post) => ({
-    slug: sluggify(post.title)
-  }))
-}
+// export const generateStaticParams = () => {
+//   return posts.map((post) => ({
+//     slug: sluggify(post.title)
+//   }))
+// }
 
-export const generateMetadata = ({ params }) => {
-  const post = posts.find(
-    (p) => sluggify(p.title) === `${params.slug}`
-  )
-
+export const generateMetadata = ({ params:{slug} }) => {
+  const post = posts.find((p) => sluggify(p.slug) === slug)
   return {
     title: post?.title,
     description: post?.description,
@@ -53,7 +50,7 @@ export const generateMetadata = ({ params }) => {
     authors: [{ name: post?.author, url: '/' }],
     category: 'tech blog',
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${params.slug}`
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${slug}`
     },
     other: {
       'article:published_time': post?.date
@@ -61,12 +58,11 @@ export const generateMetadata = ({ params }) => {
   }
 }
 const PostSlug = ({ params }) => {
-  const post = posts.find(
-    (p) => sluggify(p.title) === `${params.slug}`
-  )
+  const post = posts.find((p) => p.slug === params.slug)
+
   const relatedPosts = post
     ? posts.filter(
-      (p) => sluggify(p.category) === sluggify(post.category) && p !== post
+      (p) => p.category === post.category && p !== post
     )
     : []
 

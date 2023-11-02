@@ -13,7 +13,7 @@ const PostList = ({ posts }: Props) => {
       {posts.map((post,index) => (
         <div key={index}>
         <hr className='border-1 dark:border-primary-900'/>
-        <PostItem post={post} key={post._raw.flattenedPath} />
+        <PostItem post={post} key={post.title} />
         </div>
       ))}
     </>

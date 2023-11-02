@@ -1,3 +1,4 @@
+import { sluggify } from './src/utils/sluggify';
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
@@ -53,7 +54,11 @@ export const Post = defineDocumentType(() => ({
     url: {
       type: 'string',
       resolve: (post) => `/${post._raw.flattenedPath}`
-    }
+    },
+    slug: {
+      type: 'string',
+      resolve: (doc) => sluggify(doc._raw.flattenedPath.replace(/^.+?(\/)/, '')),
+    },
   }
 }))
 export const Category = defineDocumentType(() => ({
@@ -81,7 +86,11 @@ export const Category = defineDocumentType(() => ({
     url: {
       type: 'string',
       resolve: (category) => `/${category._raw.flattenedPath}`
-    }
+    },
+    slug: {
+      type: 'string',
+      resolve: (doc) => sluggify(doc._raw.flattenedPath.replace(/^.+?(\/)/, '')),
+    },
   }
 }))
 export const Author = defineDocumentType(() => ({
@@ -122,7 +131,11 @@ export const Author = defineDocumentType(() => ({
     url: {
       type: 'string',
       resolve: (author) => `/${author._raw.flattenedPath}`
-    }
+    },
+    slug: {
+      type: 'string',
+      resolve: (doc) => sluggify(doc._raw.flattenedPath.replace(/^.+?(\/)/, '')),
+    },
   }
 }))
 export const Privacy = defineDocumentType(() => ({
@@ -149,7 +162,11 @@ export const Privacy = defineDocumentType(() => ({
     url: {
       type: 'string',
       resolve: (privacy) => `/${privacy._raw.flattenedPath}`
-    }
+    },
+    slug: {
+      type: 'string',
+      resolve: (doc) => sluggify(doc._raw.flattenedPath.replace(/^.+?(\/)/, '')),
+    },
   }
 }))
 
